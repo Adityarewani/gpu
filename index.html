@@ -1,0 +1,37 @@
+<html>
+  <style>
+  #holder{
+    text-align: center;
+  }
+  button{
+    height: 100px;
+    width: 100px;
+  }
+  </style>
+  <body>
+    <div id="holder">
+      <button onclick="vib()">Vib/Increase</button>
+      <br>
+      <button onclick="vin()">Decrease</button>
+      <p id="text"></p>
+      <br>
+      <br>
+      <audio controls id="aud">
+        <source src="Excuses.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+    <script>
+      function vib() {
+        text = document.getElementById("text");
+        audio = document.getElementById("aud");
+        text.innerHTML = 'Hello'
+        window.navigator.vibrate([100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 5000]);
+        audio.volume = 1.0;
+      }
+      function vin() {
+        audio = document.getElementById("aud");
+        audio.volume = 0.2
+      }
+    </script>
+  </body>
+</html>
