@@ -4,8 +4,13 @@
     text-align: center;
   }
   button{
+    border-radius: 10px;
+    border: 2px solid black;
     height: 100px;
     width: 100px;
+  }
+  #slider{
+    width: 95vw;
   }
   </style>
   <body>
@@ -19,6 +24,10 @@
       <audio controls id="aud">
         <source src="Excuses.mp3" type="audio/mpeg">
       </audio>
+    </div>
+    <div class="slider">
+      <input id="slider" type="range" min="0" max="200" value="100" oninput="aud.volume = this.value">
+      <p id="rangeValue">100</p>
     </div>
     <script>
       function vib() {
