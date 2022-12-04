@@ -10,7 +10,7 @@
     width: 100px;
   }
   #slider{
-    width: 75vw;
+    width: 300px;
   }
   .slider{
     text-align: center;
@@ -30,7 +30,7 @@
     </div>
     <div class="slider">
       <input id="slider" type="range" min="0" max="10" value="5" oninput="aud()">
-      <p id="rangeValue">0.5</p>
+      <p id="rangeValue">Half</p>
     </div>
     <script>
       function vib() {
@@ -82,6 +82,16 @@
           audio.volume = 0;
         };
         val.innerHTML = audio.volume;
+        if (slider.value == "0") {
+          val.innerHTML = "Mute"
+        };
+        if (slider.value == "10") {
+          val.innerHTML = "Full"
+        };
+        if (slider.value == "5") {
+          val.innerHTML = "Half"
+        };
+        window.navigator.vibrate([10]);
       };
     </script>
   </body>
