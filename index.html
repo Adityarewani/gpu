@@ -26,21 +26,60 @@
       </audio>
     </div>
     <div class="slider">
-      <input id="slider" type="range" min="0" max="200" value="100" oninput="aud.volume = this.value">
-      <p id="rangeValue">100</p>
+      <input id="slider" type="range" min="0" max="10" value="5" oninput="aud()">
+      <p id="rangeValue">0.5</p>
     </div>
     <script>
       function vib() {
         text = document.getElementById("text");
         audio = document.getElementById("aud");
-        text.innerHTML = 'Hello'
-        window.navigator.vibrate([100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 1000]);
+        text.innerHTML = 'Hello';
+        window.navigator.vibrate([50]);
         audio.volume = 1.0;
-      }
+      };
       function vin() {
         audio = document.getElementById("aud");
-        audio.volume = 0.2
-      }
+        audio.volume = 0.1;
+      };
+      function aud() {
+        slider = document.getElementById("slider");
+        audio = document.getElementById("aud");
+        val = document.getElementById("rangeValue");
+        if (slider.value == "10") {
+          audio.volume = 1.0;
+        };
+        if (slider.value == "9") {
+          audio.volume = 0.9;
+        };
+        if (slider.value == "8") {
+          audio.volume = 0.8;
+        };
+        if (slider.value == "7") {
+          audio.volume = 0.7;
+        };
+        if (slider.value == "6") {
+          audio.volume = 0.6;
+        };
+        if (slider.value == "5") {
+          audio.volume = 0.5;
+        };
+        if (slider.value == "4") {
+          audio.volume = 0.4;
+        };
+        if (slider.value == "3") {
+          audio.volume = 0.3;
+        };
+        if (slider.value == "2") {
+          audio.volume = 0.2;
+        };
+        if (slider.value == "1") {
+          audio.volume = 0.1;
+        };
+        if (slider.value == "0") {
+          audio.volume = 0;
+        };
+        val.innerHTML = audio.volume;
+      };
     </script>
   </body>
 </html>
