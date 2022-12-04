@@ -42,6 +42,7 @@
     <div class="holder2">
       <br>
       <button onclick="vin()">Play/Pause</button>
+      <button onclick="app()">YouTube</button>
     </div>
     <script>
       function vib() {
@@ -108,6 +109,10 @@
           val.innerHTML = "Half"
         };
         window.navigator.vibrate([10]);
+      };
+      function app() {
+
+        window.location = "https://www.google.com/url?sa=t&source=web&rct=j&url=https://m.youtube.com/&ved=2ahUKEwii6bvj39_7AhVUSGwGHaUnCC8QFnoECAoQAQ&usg=AOvVaw1gjD0qA2OtrsxdcaNbwsxk"
       };
     </script>
   </body>
