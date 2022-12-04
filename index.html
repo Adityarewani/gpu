@@ -1,33 +1,30 @@
 <html>
   <style>
-  #holder{
-    text-align: center;
-  }
-  button{
-    border-radius: 20px;
-    border: 2px solid black;
-    height: 10vh;
-    width: 50vw;
-    font-size: 5vw;
-  }
-  #slider{
-    width: 80vw;
-  }
-  .slider{
-    text-align: center;
-  }
-  audio{
-    width: 80vw;
-  }
-  #rangeValue{
-    font-size: 5vw;
-  }
+    #holder , .holder2{
+      text-align: center;
+    }
+    button{
+      border-radius: 20px;
+      border: 2px solid black;
+      height: 10vh;
+      width: 50vw;
+      font-size: 5vw;
+    }
+    #slider{
+      width: 80vw;
+    }
+    .slider{
+      text-align: center;
+    }
+    audio{
+      width: 80vw;
+    }
+    #rangeValue{
+      font-size: 5vw;
+    }
   </style>
   <body>
     <div id="holder">
-      <button onclick="vib()">Vib/Increase</button>
-      <br>
-      <button onclick="vin()">Decrease</button>
       <p id="text"></p>
       <br>
       <br>
@@ -39,6 +36,10 @@
       <input id="slider" type="range" min="0" max="10" value="5" oninput="aud()">
       <p id="rangeValue">Half</p>
     </div>
+    <div class="holder2">
+      <br>
+      <button onclick="vin()">Play/Pause</button>
+    </div>
     <script>
       function vib() {
         text = document.getElementById("text");
@@ -48,8 +49,13 @@
         audio.volume = 1.0;
       };
       function vin() {
-        audio = document.getElementById("aud");
-        audio.volume = 0.1;
+        newAudio = document.getElementById("aud");
+        if (newAudio.paused) {
+          newAudio.play();
+        }
+        else {
+          newAudio.pause();
+        };
       };
       function aud() {
         slider = document.getElementById("slider");
