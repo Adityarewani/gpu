@@ -7,7 +7,8 @@
       text-align: center;
     }
     #input{
-      width: 50vw
+      width: 50vw;
+      height: 5vh;
     }
     button{
       border-radius: 20px;
@@ -45,15 +46,16 @@
     <div class="holder2">
       <br>
       <button onclick="vin()">Play/Pause</button>
-      <button onclick="app()">YouTube</button>
-      <button onclick="wap()">Whatsapp</button>
+      <button onclick="app()">Channel</button>
       <br>
       <br>
       <br>
       <input type="text" id="input"></input>
       <br>
       <br>
+      <button onclick="wap()">Whatsapp</button>
       <button onclick="goo()">Google</button>
+      <button onclick="you()">Youtube</button>
     </div>
     <script>
       function vib() {
@@ -125,11 +127,16 @@
         window.location = "https://youtube.com/@LetitbeFact----BESTCHANNEL"
       };
       function wap() {
-        window.open('whatsapp://send?text=This is WhatsApp sharing example using button')
+        const input = document.getElementById('input')
+        window.open('whatsapp://send?text=' + input.value)
       };
       function goo() {
         const input = document.getElementById('input')
         window.open("https://www.google.com/search?q=" + input.value + "&oq=&aqs=chrome", "_blank")
+      };
+      function you() {
+        const input = document.getElementById('input')
+        window.open("https://m.youtube.com/results?sp=mAEA&search_query=" + input.value)
       };
     </script>
   </body>
