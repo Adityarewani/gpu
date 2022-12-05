@@ -43,6 +43,14 @@
       <br>
       <button onclick="vin()">Play/Pause</button>
       <button onclick="app()">YouTube</button>
+      <button onclick="wap()">Whatsapp</button>
+      <br>
+      <br>
+      <br>
+      <input type="text" id="input"></input>
+      <br>
+      <br>
+      <button onclick="goo()">Google</button>
     </div>
     <script>
       function vib() {
@@ -111,8 +119,14 @@
         window.navigator.vibrate([15]);
       };
       function app() {
-
         window.location = "https://youtube.com/@LetitbeFact----BESTCHANNEL"
+      };
+      function wap() {
+        window.open('whatsapp://send?text=This is WhatsApp sharing example using button')
+      };
+      function goo() {
+        const input = document.getElementById('input')
+        window.location = "https://www.google.com/search?q=" + input.value + "&oq=&aqs=chrome"
       };
     </script>
   </body>
