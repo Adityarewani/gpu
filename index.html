@@ -38,6 +38,9 @@
       <audio id="aud">
         <source src="Excuses.mp3" type="audio/mpeg">
       </audio>
+      <audio id="aud2">
+        <source src="Win.mp3" type="audio/mpeg">
+      </audio>
     </div>
     <div class="slider">
       <input id="slider" type="range" min="0" max="10" value="5" oninput="aud()">
@@ -128,15 +131,32 @@
       };
       function wap() {
         const input = document.getElementById('input')
+        const input = document.getElementById('aud2')
+        if (input.value == "") {
+          alert("Please provide some text")
+          
+        };
+        if (input.value != "") {
         window.open('whatsapp://send?text=' + input.value)
+        };
       };
       function goo() {
         const input = document.getElementById('input')
+        if (input.value == "") {
+          alert("Please provide some text")
+        };
+        if (input.value != "") {
         window.open("https://www.google.com/search?q=" + input.value + "&oq=&aqs=chrome", "_blank")
+        };
       };
       function you() {
         const input = document.getElementById('input')
+        if (input.value == "") {
+          alert("Please provide some text")
+        };
+        if (input.value != "") {
         window.open("https://m.youtube.com/results?sp=mAEA&search_query=" + input.value)
+        }; 
       };
     </script>
   </body>
