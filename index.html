@@ -1,6 +1,7 @@
 <html>
   <head>
     <link rel="icon" href="20221204_122646.png"/>
+    <meta name=”theme-color” content=”#152126″>
   </head>
   <style>
     #holder , .holder2{
@@ -61,6 +62,7 @@
       <button onclick="you()">Youtube</button>
     </div>
     <script>
+      const input = document.getElementById('input')
       function vib() {
         text = document.getElementById("text");
         audio = document.getElementById("aud");
@@ -130,29 +132,36 @@
         window.location = "https://youtube.com/@LetitbeFact----BESTCHANNEL"
       };
       function wap() {
-        const input = document.getElementById('input')
-        const input = document.getElementById('aud2')
+        const aud = document.getElementById('aud2')
         if (input.value == "") {
+          aud.play();
           alert("Please provide some text")
-          
+          aud.pause();
+          aud.currentTime = 0
         };
         if (input.value != "") {
         window.open('whatsapp://send?text=' + input.value)
         };
       };
       function goo() {
-        const input = document.getElementById('input')
+        const aud = document.getElementById('aud2')
         if (input.value == "") {
+          aud.play();
           alert("Please provide some text")
+          aud.pause();
+          aud.currentTime = 0
         };
         if (input.value != "") {
         window.open("https://www.google.com/search?q=" + input.value + "&oq=&aqs=chrome", "_blank")
         };
       };
       function you() {
-        const input = document.getElementById('input')
+        const aud = document.getElementById('aud2')
         if (input.value == "") {
+          aud.play();
           alert("Please provide some text")
+          aud.pause();
+          aud.currentTime = 0
         };
         if (input.value != "") {
         window.open("https://m.youtube.com/results?sp=mAEA&search_query=" + input.value)
