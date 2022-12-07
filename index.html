@@ -60,6 +60,7 @@
       <button onclick="wap()">Whatsapp</button>
       <button onclick="goo()">Google</button>
       <button onclick="you()">Youtube</button>
+      <button onclick="pla()">Play Store</button>
     </div>
     <script>
       const input = document.getElementById('input')
@@ -166,6 +167,24 @@
         if (input.value != "") {
         window.open("https://m.youtube.com/results?sp=mAEA&search_query=" + input.value)
         }; 
+      };
+      function pla() {
+        games = input.value.toLowerCase()
+        app = ""
+        if (games == "free fire") {
+          app = "com.dts.freefiremax"
+          call()
+        }
+        else if (games == "youtube") {
+          app = "com.google.android.youtube"
+          call()
+        }
+        else {
+          alert("Please enter a valid app name")
+        };
+        function call() {
+          window.open("https://play.google.com/store/apps/details?id=" + app)
+        }
       };
     </script>
   </body>
