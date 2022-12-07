@@ -1,7 +1,7 @@
 <html>
   <head>
     <link rel="icon" href="20221204_122646.png"/>
-    <meta name=”theme-color” content=”#152126″>
+    <meta name="theme-color" content="#252c2e">
   </head>
   <style>
     #holder , .holder2{
@@ -195,18 +195,20 @@
         const aud = document.getElementById('aud2')
         navigator.geolocation
         if (navigator.geolocation) {
-          nav = navigator.geolocation.getCurrentPosition(show, console.log("ERROR"))
-        }
-        else {
-          aud.play()
-          alert("Something went wrong!")
-          aud.pause()
-          aud.currentTime = 0
+          nav = navigator.geolocation.getCurrentPosition(show, err)
+        } else {
+          console.log("error")
         }
         function show(position) {
           let lat = position.coords.latitude
           let lon = position.coords.longitude
           window.open("https://www.google.com/maps/@" + lat + "," + lon + ",16z/data=")
+        };
+        function err() {
+          aud.play()
+          alert("Something went wrong!")
+          aud.pause()
+          aud.currentTime = 0
         };
       };
     </script>
