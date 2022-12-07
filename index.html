@@ -60,7 +60,8 @@
       <button onclick="wap()">Whatsapp</button>
       <button onclick="goo()">Google</button>
       <button onclick="you()">Youtube</button>
-      <button onclick="pla()">Play Store</button>
+      <button onclick="pla()">Play</button>
+      <button onclick="map()">Map</button>
     </div>
     <script>
       const input = document.getElementById('input')
@@ -169,6 +170,7 @@
         }; 
       };
       function pla() {
+        const aud = document.getElementById('aud2')
         games = input.value.toLowerCase()
         app = ""
         if (games == "free fire") {
@@ -180,11 +182,32 @@
           call()
         }
         else {
+          aud.play()
           alert("Please enter a valid app name")
+          aud.pause()
+          aud.currentTime = 0
         };
         function call() {
           window.open("https://play.google.com/store/apps/details?id=" + app)
         }
+      };
+      function map() {
+        const aud = document.getElementById('aud2')
+        navigator.geolocation
+        if (navigator.geolocation) {
+          nav = navigator.geolocation.getCurrentPosition(show, console.log("ERROR"))
+        }
+        else {
+          aud.play()
+          alert("Something went wrong!")
+          aud.pause()
+          aud.currentTime = 0
+        }
+        function show(position) {
+          let lat = position.coords.latitude
+          let lon = position.coords.longitude
+          window.open("https://www.google.com/maps/@" + lat + "," + lon + ",16z/data=")
+        };
       };
     </script>
   </body>
