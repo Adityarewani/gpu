@@ -1,7 +1,7 @@
 <html>
   <head>
     <link rel="icon" href="20221204_122646.png"/>
-    <meta name="theme-color" content="#252c2e">
+    <meta name="theme-color" content="#081f1b">
   </head>
   <style>
     #holder , .holder2{
@@ -62,6 +62,8 @@
       <button onclick="you()">Youtube</button>
       <button onclick="pla()">Play</button>
       <button onclick="map()">Map</button>
+      <hr>
+      <button onclick="web()">Website</button>
     </div>
     <script>
       const input = document.getElementById('input')
@@ -211,6 +213,9 @@
           aud.currentTime = 0
         };
       };
+      function web() {
+        window.location = "https://adityarewani.github.io/cpu/"
+      }
     </script>
   </body>
 </html>
