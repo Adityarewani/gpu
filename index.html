@@ -230,8 +230,9 @@ Humans make use of many animal species, such as for food (including meat, milk, 
         window.location = "https://adityarewani.github.io/cpu/"
       }
       function srl() {
-        window.scrollTo(0,0);
-      };
+        window.scrollTo({ top: 0 , behavior: 'smooth' });
+        document.body.style.zoom = "200%"
+      }
     </script>
   </body>
 </html>
