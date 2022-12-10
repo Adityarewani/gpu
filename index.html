@@ -78,6 +78,7 @@ Historically, Aristotle divided animals into those with blood and those without.
 
 Humans make use of many animal species, such as for food (including meat, milk, and eggs), for materials (such as leather and wool), as pets, and as working animals including for transport. Dogs have been used in hunting, as have birds of prey, while many terrestrial and aquatic animals were hunted for sports. Nonhuman animals have appeared in art from the earliest times and are featured in mythology and religion.</p>
       <button onclick="srl()">Scroll Top</button>
+      <button onclick="test()">Zoom</button>
     </div>
     <script>
       const input = document.getElementById('input')
@@ -232,6 +233,9 @@ Humans make use of many animal species, such as for food (including meat, milk, 
       }
       function srl() {
         window.scrollTo({ top: 0 , behavior: 'smooth' });
+        document.body.style.zoom="100%"
+      }
+      function test() {
         let zoom = ((window.outerWidth - 10) 
                 / window.innerWidth) * 100; 
         console.log(zoom);
