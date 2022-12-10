@@ -5,7 +5,7 @@
   </head>
   <style>
     body{
-      zoom: 400%;
+      
     }
     p{
       font-size: 1vw;
@@ -232,6 +232,9 @@ Humans make use of many animal species, such as for food (including meat, milk, 
       }
       function srl() {
         window.scrollTo({ top: 0 , behavior: 'smooth' });
+        let zoom = ((window.outerWidth - 10) 
+                / window.innerWidth) * 100; 
+        console.log(zoom);
       }
     </script>
   </body>
