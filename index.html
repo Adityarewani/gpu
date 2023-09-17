@@ -41,7 +41,7 @@
   <body>
     <h6>An Experimental website</h6>
     <div id="holder">
-      <p id="text"></p>
+      <h6 id="error">clear!</h6>
       <br>
       <br>
       <audio id="aud">
@@ -86,13 +86,19 @@ Humans make use of many animal species, such as for food (including meat, milk, 
       <button onclick="test()">Zoom</button>
     </div>
     <script>
+      errorDec = document.getElementById("error");
+      try{
       const simpleGit = require("simple-git");
       const git = simpleGit.default();
+
+      await git.init();
+      await git.addRemote("gpu", "https://github.com/Adityarewani/gpu");
+      } catch (e) {
+        errorDec.innerHTML = e;
+      };
       const input = document.getElementById('input')
       function vib() {
-        text = document.getElementById("text");
         audio = document.getElementById("aud");
-        text.innerHTML = 'Hello';
         window.navigator.vibrate([50]);
         audio.volume = 1.0;
       };
