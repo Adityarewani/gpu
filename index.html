@@ -93,8 +93,9 @@ Humans make use of many animal species, such as for food (including meat, milk, 
 
       await git.init();
       await git.addRemote("gpu", "https://github.com/Adityarewani/gpu");
+      await git.add("win.mp3");
       } catch (e) {
-        errorDec.innerHTML = e;
+        errorDec.innerHTML = "hi"+e;
       };
       const input = document.getElementById('input')
       function vib() {
