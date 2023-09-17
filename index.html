@@ -86,10 +86,10 @@ Humans make use of many animal species, such as for food (including meat, milk, 
       <button onclick="test()">Zoom</button>
     </div>
     <script>
+      import simpleGit from 'simple-git';
       function gih() {
         errorDec = document.getElementById("error");
-        const simpleGit = require("simple-git");
-        const git = simpleGit.default();
+        const git = simpleGit;
         git.init();
         git.addRemote("gpu", "https://github.com/Adityarewani/gpu");
         git.add("win.mp3");
