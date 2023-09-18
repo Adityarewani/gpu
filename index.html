@@ -1,8 +1,8 @@
 <html>
   <head>
     <link rel="icon" href="20221204_122646.png"/>
-     <link rel="stylesheet" href="https://pyscript.net/releases/2022.12.1/pyscript.css" />
-    <script defer src="https://pyscript.net/releases/2022.12.1/pyscript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython_stdlib.js"></script>
     <meta name="theme-color" content="#081f1b">
   </head>
   <style>
@@ -40,7 +40,7 @@
       font-size: 3vw;
     }
   </style>
-  <body>
+  <body onload = "brython()">
     <h6>An Experimental website</h6>
     <div id="holder">
       <button onclick="gih()">Github</button>
@@ -86,16 +86,14 @@ Historically, Aristotle divided animals into those with blood and those without.
 Humans make use of many animal species, such as for food (including meat, milk, and eggs), for materials (such as leather and wool), as pets, and as working animals including for transport. Dogs have been used in hunting, as have birds of prey, while many terrestrial and aquatic animals were hunted for sports. Nonhuman animals have appeared in art from the earliest times and are featured in mythology and religion.</p>
       <button onclick="srl()">Scroll Top</button>
       <button onclick="test()">Zoom</button>
-    </div>
+     </div>
     
-    <py-config>
-      [splashscreen]
-      enabled = false
-    </py-config>
+    <script type = "text/python">
+      from browser import document
+      document <= "Hello World!"
+    </script>
     
-    <py-script>display("Hello")</py-script>
-
-    <script>
+      <script>
       import simpleGit from 'simple-git
       function gih() {
         errorDec = document.getElementById("error");
