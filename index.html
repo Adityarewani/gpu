@@ -1,0 +1,43 @@
+ <?php
+include('mysqli_connect.php');
+echo"Success";
+echo '<a href="?logout"> Logout? </a>';
+if(isset($_GET['logout']))
+{
+header ("Location: enter_passcode.html");
+}
+if(isset($_GET['pass']))
+{
+$pass=$_GET['pass'];
+echo 'pass is set';
+$set="SELECT title, ad_body, contact, zip_code, price, email FROM ads WHERE password=SHA1('$pass')"; 
+$gets=mysqli_query($dbc,$set);
+$results=mysqli_fetch_array($gets,MYSQLI_NUM);
+$contact=$results[2];
+$ad_body=$results[1];
+$zip_code=$results[3];
+$price=$results[4];
+$email=$results[5];
+$title=$results[0];
+echo 'GET is set';
+}else{ echo 'Get is not set';}
+?>
+<html>
+<form method="post" action="post.php">
+Title:
+<input type="text"  name="title" value="<?php echo $title; ?>" size="30" /><p>
+
+<textarea name="ad" rows="10" cols="40" size="150">
+
+</textarea><p>
+
+Passcode:<input type="password" name="passcode" size=12 />
+Contact:<input type="text" name="contact" value="Enter a website,email, phone number, or other contact detail customers can use to contact you. " size=120/>
+<p>Price:<input type="text" name="price" value="<?php echo $price; ?> " size=50/>
+Email:<input type="text" name="email" size=50/>
+<input type="submit" name="Submit" />
+<input type="hidden" name="submitted"/>
+
+</form>
+
+</html>
