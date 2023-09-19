@@ -41,7 +41,6 @@
   <body>
     <h6>An Experimental website</h6>
     <div id="holder">
-      <button onclick="gih()">Github</button>
       <br>
       <br>
       <audio id="aud">
@@ -93,15 +92,6 @@ Humans make use of many animal species, such as for food (including meat, milk, 
     <h1><?php echo $var; ?></h1>
     
     <script>
-      import simpleGit from 'simple-git';
-      function gih() {
-        errorDec = document.getElementById("error");
-        const git = simpleGit;
-        git.init();
-        git.addRemote("gpu", "https://github.com/Adityarewani/gpu");
-        git.add("win.mp3");
-        git.commit();
-      };
       const input = document.getElementById('input')
       function vib() {
         audio = document.getElementById("aud");
