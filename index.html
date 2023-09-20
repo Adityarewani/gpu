@@ -28,19 +28,11 @@
       font-size: 3vw;
       background-color: transparent;
     }
-    #slider{
-      width: 90%;
-    }
-    .slider{
-      text-align: center;
-    }
-    #rangeValue{
-      font-size: 3vw;
-    }
   </style>
-  <body>
+  <body onload = "brython()">
     <h6>An Experimental website</h6>
     <div id="holder">
+      <button onclick="gih()">Github</button>
       <br>
       <br>
       <audio id="aud">
@@ -49,10 +41,6 @@
       <audio id="aud2">
         <source src="win.mp3" type="audio/mpeg">
       </audio>
-    </div>
-    <div class="slider">
-      <input id="slider" type="range" min="0" max="10" value="5" oninput="aud()">
-      <p id="rangeValue">Half</p>
     </div>
     <div class="holder2">
       <br>
@@ -83,21 +71,9 @@ Historically, Aristotle divided animals into those with blood and those without.
 Humans make use of many animal species, such as for food (including meat, milk, and eggs), for materials (such as leather and wool), as pets, and as working animals including for transport. Dogs have been used in hunting, as have birds of prey, while many terrestrial and aquatic animals were hunted for sports. Nonhuman animals have appeared in art from the earliest times and are featured in mythology and religion.</p>
       <button onclick="srl()">Scroll Top</button>
       <button onclick="test()">Zoom</button>
-    </div>
-    
-    <?php
-    $var = 10;
-    ?>
-    
-    <h1><?php echo $var; ?></h1>
-    
-    <script>
-      const input = document.getElementById('input')
-      function vib() {
-        audio = document.getElementById("aud");
-        window.navigator.vibrate([50]);
-        audio.volume = 1.0;
-      };
+     </div>
+
+      <script>
       function vin() {
         newAudio = document.getElementById("aud");
         if (newAudio.paused) {
@@ -106,55 +82,6 @@ Humans make use of many animal species, such as for food (including meat, milk, 
         else {
           newAudio.pause();
         };
-      };
-      function aud() {
-        slider = document.getElementById("slider");
-        audio = document.getElementById("aud");
-        val = document.getElementById("rangeValue");
-        if (slider.value == "10") {
-          audio.volume = 1.0;
-        };
-        if (slider.value == "9") {
-          audio.volume = 0.9;
-        };
-        if (slider.value == "8") {
-          audio.volume = 0.8;
-        };
-        if (slider.value == "7") {
-          audio.volume = 0.7;
-        };
-        if (slider.value == "6") {
-          audio.volume = 0.6;
-        };
-        if (slider.value == "5") {
-          audio.volume = 0.5;
-        };
-        if (slider.value == "4") {
-          audio.volume = 0.4;
-        };
-        if (slider.value == "3") {
-          audio.volume = 0.3;
-        };
-        if (slider.value == "2") {
-          audio.volume = 0.2;
-        };
-        if (slider.value == "1") {
-          audio.volume = 0.1;
-        };
-        if (slider.value == "0") {
-          audio.volume = 0;
-        };
-        val.innerHTML = audio.volume;
-        if (slider.value == "0") {
-          val.innerHTML = "Mute"
-        };
-        if (slider.value == "10") {
-          val.innerHTML = "Full"
-        };
-        if (slider.value == "5") {
-          val.innerHTML = "Half"
-        };
-        window.navigator.vibrate([15]);
       };
       function app() {
         window.location = "https://youtube.com/@ZIP10Gamer?si=Ba9N1GM3_75rS0zd"
@@ -253,4 +180,4 @@ Humans make use of many animal species, such as for food (including meat, milk, 
       }
     </script>
   </body>
-</html>
+ </html
