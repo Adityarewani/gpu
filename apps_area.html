@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatable" content="IE-edge, chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <title>My Apps</title>
+</head>
+
+<style>
+  body{
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+  .card {
+    width: 29.7%;
+    background: #fbdf63;
+    padding: 1%;
+    border-radius: 4%;
+    display: inline-table;
+  }
+  #card1{
+    margin-left: 1%;
+    margin-right: 0%;
+    margin-bottom: 1.5%;
+  }
+  #card2{
+    background: #EB7457;
+    margin-right: 0%;
+    margin-left: 0%;
+  }
+  #card3{
+    margin-right: 0%;
+    background: #D3DCE0;
+  }
+  img{
+    width: 100%;
+    border-radius: 4%;
+    user-select: none;
+  }
+  @font-face {
+    font-family: regu;
+    src: url(regular.ttf);
+  }
+  @font-face {
+    font-family: bold;
+    src: url(boldItalic.ttf);
+  }
+  @font-face {
+    font-family: antonio-light;
+    src: url(Antonio-Light.ttf);
+  }
+  @font-face {
+    font-family: app_name;
+    src: url(NunitoSans-ExtraBold.ttf);
+  }
+  @font-face {
+    font-family: app_detail;
+    src: url(NunitoSans-Regular.ttf);
+  }
+  h1{
+    font-size: 230%;
+    Display: Inline
+  }
+  h4{
+    user-select: none;
+  }
+  #app_name{
+    font-size: 150%;
+    color: #3B3417;
+    user-select: none;
+    font-family: "app_name";
+  }
+  #app_detail{
+    font-size: 100%;
+    color: #3B3417;
+    user-select: none;
+    font-family: "app_detail";
+  }
+  .dev_detail{
+    font-family: "app";
+    margin-left: 1%;
+  }
+  .card1p{
+    
+  }
+  .card2p{
+    display: block;
+  }
+</style>
+
+<body>
+  
+  <h1 style="font-family: regu; margin-left: 1%;">Apps made..</h1><h1 style="font-family: bold;">BY ME</h1>
+  <p class="dev_detail">Apps or mobile softwares that are made by me(Aditya Rewani)...</p>
+  <p class="dev_detail">Click on the app you would like to download.
+  No redirecting, No spammy links, No virus. 100% genuine</p>
+  <br>
+  <br>
+  
+  <div class="card" id="card1" onclick="window.location = 'https://adityarewani.github.io/gpu/app_lifi.apk'">
+    <div>
+      <img id="imga" src="/lifi-banner.jpg" alt="no need">
+    </div>
+    <div class="details">
+      <h2 id="app_name">Li-fi</h2>
+      <div class="card1p">
+        <p id="app_detail">This is an light weight software used to transmit and receive data on the principals of lifi technology!!!</p>
+      </div>
+    </div>
+  </div>
+    
+  <div class="card" id="card2">
+    <img src="/card2_null.jpg" alt="no need">
+    <div class="details">
+      <h2 id="app_name" style="color: #1C0E0A">(Game)</h2>
+      <div class="card2p">
+        <p id="app_detail" style="color: #1C0E0A">It is an game simliar in Nokia but with modern design.</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card" id="card3">
+    <img src="/card3_null.jpg" alt="no need">
+    <div class="details">
+      <h2 id="app_name" style="color: #64686A">Naa</h2>
+      <div class="card3p">
+        <p id="app_detail" style="color: #64686A">Not decided ¡¡¡</p>
+      </div>
+    </div>
+  </div>
+    <!--
+  <div class="card" id="card4">
+    <img src="/card3_null.jpg" alt="no need">
+    <div class="details">
+      <h2 id="app_name" style="color: #64686A">Naa</h2>
+      <div class="card4p">
+        <p id="app_detail" style="color: #64686A">Not decided ¡¡¡</p>
+      </div>
+    </div>
+  </div>
+-->
+
+</body>
+<script>
+  const mode = screen.orientation;
+  const imga = document.getElementById("imga");
+  const pad = window.getComputedStyle(card1);
+  const card1p = document.querySelector(".card1p");
+  const card1ps = window.getComputedStyle(card1p);
+  const card3p = document.querySelector(".card3p");
+  const card3ps = window.getComputedStyle(card3p);
+
+  console.log(card1ps.height);
+  
+  //card3p.style.height = card1p.clientHeight + "px";
+  console.log(card1.offsetHeight, card2.offsetHeight, card3.clientHeight);
+  card3.style.height = (card1.clientHeight + "px");
+  card2.style.height = (card1.clientHeight + "px");
+  card1.style.height = (card1.clientHeight + "px");
+  card2.style.marginTop = "0px";
+  
+  console.log(card1.offsetHeight, card2.offsetHeight, card3.clientHeight);
+  //card1.style.height = (card1.clientHeight + card1.clientWidth - 4*parseFloat(pad.paddingTop)) + "px";
+  
+  if (mode.type == "portrait-primary" || mode.type == "portrait-secondary") {
+    console.log("orientation", "potrait");
+    card1.style.width = "46.2%";
+    card2.style.width = "46.2%";
+    card3.style.width = "46.2%";
+    card1.style.marginLeft = "1%";
+    card1.style.martinRight = "1%";
+    card2.style.marginLeft = "1%";
+    card3.style.marginLeft = "1%";
+  }
+  else {
+    console.log("orientation", "landscape");
+    card1.style.width = "29.7%";
+    card2.style.width = "29.7%";
+    card3.style.width = "29.7%";
+    card1.style.martinRight = "0%";
+    card3.style.marginLeft = "0%";
+    card2.style.marginLeft = "1%";
+    card2.style.martinRight = "1%";
+    card3.style.marginLeft = "1%";
+  }
+
+  //cards();
+  mode.addEventListener('change',
+  
+    function() {
+  
+      const card1 = document.querySelector("#card1");
+      const card2 = document.querySelector("#card2");
+      const card3 = document.querySelector("#card3");
+  
+      //console.log(card1, card2, card3);
+  
+      if (mode.type == "portrait-primary" || mode.type == "portrait-secondary") {
+        console.log("orientation", "potrait");
+        card1.style.width = "46.2%";
+        card2.style.width = "46.2%";
+        card3.style.width = "46.2%";
+        card1.style.marginLeft = "1%";
+        card1.style.martinRight = "1%";
+        card2.style.marginLeft = "1%";
+        card3.style.marginLeft = "1%";
+      }
+      else {
+        console.log("orientation", "landscape");
+        card1.style.width = "29.7%";
+        card2.style.width = "29.7%";
+        card3.style.width = "29.7%";
+        card1.style.martinRight = "0%";
+        card3.style.marginLeft = "0%";
+        card2.style.marginLeft = "1%";
+        card2.style.martinRight = "1%";
+        card3.style.marginLeft = "1%";
+      }
+      console.log(card1.clientHeight, card1.clientWidth);
+      card3.style.height = card1.clientHeight - 2*pad.marginTop - 2*parseFloat(pad.paddingTop) + "px";
+    });
+</script>
+</html>
