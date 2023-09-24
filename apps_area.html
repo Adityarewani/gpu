@@ -5,25 +5,42 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatable" content="IE-edge, chrome=1">
   <meta name="viewport" content="width=device-width">
+  <script type="text/javascript" src="jquery-3.7.1.js"></script>
   <title>My Apps</title>
 </head>
 
-<style>
+<style id="sty">
   body{
     padding-left: 0%;
     padding-right: 0%;
+  }
+  #card1:hover{
+    box-shadow: 0vw 0vh 2vw #fbdf63;
+  }
+  #card2:hover{
+    box-shadow: 0vw 0vh 2vw #EB7457;
+  }
+  #card3:hover{
+    box-shadow: 0vw 0vh 2vw #D3DCE0;
   }
   .card {
     width: 29.7%;
     background: #fbdf63;
     padding: 1%;
-    border-radius: 4%;
+    border-radius: 4%/4%;
     display: inline-table;
+    box-shadow: 0.5vw 0.5vh black,
+                0.4vw 0.4vh black,
+                0.3vw 0.3vh black,
+                0.2vw 0.2vh black,
+                0.1vw 0.1vh black;
+    border: 0.2vw solid black;
+    transition: 0.2s;
   }
   #card1{
     margin-left: 1%;
     margin-right: 0%;
-    margin-bottom: 1.5%;
+    margin-bottom: 1.7%;
   }
   #card2{
     background: #EB7457;
@@ -32,6 +49,7 @@
   }
   #card3{
     margin-right: 0%;
+    margin-bottom: 1%;
     background: #D3DCE0;
   }
   img{
@@ -41,39 +59,59 @@
   }
   @font-face {
     font-family: regu;
-    src: url(regular.ttf);
+    src: url(/fonts/regular.ttf);
   }
   @font-face {
     font-family: bold;
-    src: url(boldItalic.ttf);
+    src: url(/fonts/boldItalic.ttf);
   }
   @font-face {
     font-family: antonio-light;
-    src: url(Antonio-Light.ttf);
+    src: url(/fonts/Antonio-Light.ttf);
   }
   @font-face {
     font-family: app_name;
-    src: url(NunitoSans-ExtraBold.ttf);
+    src: url(/fonts/NunitoSans-ExtraBold.ttf);
   }
   @font-face {
     font-family: app_detail;
-    src: url(NunitoSans-Regular.ttf);
+    src: url(/fonts/NunitoSans-Regular.ttf);
   }
   @font-face {
     font-family: man_reg;
-    src: url(manrope.regular.otf);
+    src: url(/fonts/manrope.regular.otf);
   }
   @font-face {
     font-family: man_med;
-    src: url(manrope.medium.otf);
+    src: url(/fonts/manrope.medium.otf);
   }
   @font-face {
     font-family: man_bol;
-    src: url(manrope.bold.otf);
+    src: url(/fonts/manrope.bold.otf);
+  }
+  @font-face {
+    font-family: man_extbol;
+    src: url(/fonts/manrope.extrabold.otf);
+  }
+  @font-face {
+    font-family: man_thin;
+    src: url(/fonts/manrope.thin.otf);
+  }
+  @font-face {
+    font-family: pro_bol_ita;
+    src: url(/fonts/ProductSansBoldItalic.ttf);
+  }
+  @font-face {
+    font-family: pro_reg;
+    src: url(/fonts/ProductSansRegular.ttf);
+  }
+  @font-face {
+    font-family: got_bol;
+    src: url(/fonts/GothamPro-Bold.ttf)
   }
   h1{
     font-size: 230%;
-    Display: Inline
+    Display: Inline;
   }
   h4{
     user-select: none;
@@ -82,27 +120,130 @@
     font-size: 150%;
     color: #3B3417;
     user-select: none;
-    font-family: "app_name";
+    font-family: "man_extbol";
   }
   #app_detail{
+    display: inline-block;
     font-size: 100%;
-    color: #3B3417;
+    color: black;
     user-select: none;
-    font-family: "app_detail";
+    font-family: "app_name";
+    border-bottom: 3px solid white;
+    padding-left: 1%;
+    padding-right: 1%;
   }
   .dev_detail{
     font-family: "man_med";
-    font-size: 100%;
-    margin-left: 1%;
-    display: inline
+    font-size: 110%;
+    display: inline;
   }
   .card2p{
     display: block;
   }
+  @keyframes name_col{
+    0%{color: darkred}
+    14%{color: darkorange}
+    28%{color: yellowgreen}
+    42%{color: darkgreen}
+    56%{color: darkblue}
+    70%{color: purple}
+    84%{color: black}
+  }
   #ll{
     font-family: "man_bol";
-    font-size: 100%;
-    display: inline
+    font-size: 120%;
+    display: inline;
+    white-space: nowrap;
+    -webkit-text-stroke-width: 0.07vw;
+    -webkit-text-stroke-color: black;
+    animation-name: name_col;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+  }
+  #app_view{
+    width: full;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    margin-left: 1%;
+    margin-right: 1%;
+    padding: 1%;
+    background-color: #fbdf63;
+    border-radius: 2vw;
+    text-align: center;
+    border: 0vw solid yellow;
+    box-shadow: 0 0 2vw #fbdf63;
+    display: none;
+  }
+  #app_view_app_name{
+    display: inline-block;
+    font-size: 250%;
+    font-family: "got_bol";
+    -webkit-text-stroke-width: 0.07vw;
+    -webkit-text-stroke-color: black;
+    margin-top: 0vh;
+  }
+  #lifiTechDetail{
+    display: inline-block;
+    background-color: #FAC353;
+    border: 0.2vw solid black;
+    border-right: 0.6vw solid black;
+    border-bottom: 0.6vw solid black;
+    margin-right: 0.2%;
+    text-align: left;
+    padding: 1%;
+  }
+  #lifiWhat{
+    font-family: "pro_bol_ita";
+    font-size: 170%;
+    display: inline;
+  }
+  #lifi{
+    font-family: "pro_reg";
+    font-size: 110%;
+    display: inline-block;
+  }
+  #app_view_download{
+    width: 100%;
+    height: 10%;
+    margin-top: 2%;
+    overflow: hidden;
+  }
+  #download_cont{
+    width: 100%;
+    position: relative;
+  }
+  .h3{
+    font-family: "man_thin";
+    font-size: 140%;
+    background-color: #212121;
+    color: white;
+    display: inline-block;
+    padding: 15px 25px;
+    border-radius: 0.5em;
+    box-shadow: 0 0 100% #212121;
+    margin-bottom: 1%;
+  }
+  #app_view_updates_cont{
+    width: 100%;
+    margin-top: 2%;
+    margin-left: 0.5%;
+    overflow: hidden;
+    text-align: left;
+  }
+  #app_view_updates_head{
+    font-family: 'got_bol';
+    font-size: 200%;
+    margin: 0;
+    display: inline-block;
+  }
+  #app_view_updates_para{
+    display: inline-block;
+    margin: 0;
+    margin-left: 1%;
+    margin-top: 1.5%;
+    font-family: "pro_reg";
+    font-size: 115%;
   }
 </style>
 
@@ -111,71 +252,88 @@
   <h1 style="font-family: regu; margin-left: 1%;">Apps made..</h1><h1 style="font-family: bold;">BY ME</h1>
   <br>
   <br>
-  <p class="dev_detail">Apps or mobile softwares that are made by me</p>
-  <p id="ll">ie.Aditya Rewani</p>
+  <div style="width: 100%; padding-left: 1%">
+    <p class="dev_detail">Apps or mobile softwares that are made by me ie.</p>
+    <p id="ll">Aditya Rewani</p>
+    <br>
+    <p class="dev_detail">Click the app card you would like to know more about or to download.
+    No redirecting, No spammy links, No virus.</p><p id="ll" style="animation-name: none; -webkit-text-stroke-width: 0vw;">100%_genuine</p>
+  </div>
   <br>
-  <p class="dev_detail">Click on the app you would like to download.
-  No redirecting, No spammy links, No virus.</p><br><p id="ll" style="margin-left: 1%">100%_genuine</p>
   <br>
-  <br>
-  <br>
+
   
-  <div class="card" id="card1" onclick="window.location = 'https://adityarewani.github.io/gpu/app_lifi.apk'">
+  <div class="card" id="card1">
     <div>
-      <img id="imga" src="https://adityarewani.github.io/gpu/lifi-banner.jpg" alt="no need">
+      <img id="imga" src="/lifi-banner.jpg" alt="no need">
     </div>
     <div class="details">
       <h2 id="app_name">Li-fi</h2>
       <div class="card1p">
-        <p id="app_detail">This is an light weight software used to transmit and receive data on the principals of lifi technology!!!</p>
+        <p id="app_detail">Click to view full detail. </p>
       </div>
     </div>
   </div>
     
   <div class="card" id="card2">
-    <img src="https://adityarewani.github.io/gpu/card2_null.jpg" alt="no need">
+    <img src="/card2_null.jpg" alt="no need">
     <div class="details">
-      <h2 id="app_name" style="color: #1C0E0A">(Game)</h2>
+      <h2 id="app_name" style="color: #1C0E0A">Game</h2>
       <div class="card2p">
-        <p id="app_detail" style="color: #1C0E0A">It is an game simliar in Nokia but with modern design.</p>
+        <p id="app_detail">Click to view full detail.</p>
       </div>
     </div>
   </div>
   
   <div class="card" id="card3">
-    <img src="https://adityarewani.github.io/gpu/card3_null.jpg" alt="no need">
-    <div class="details">
-      <h2 id="app_name" style="color: #64686A">Naa</h2>
-      <div class="card3p">
-        <p id="app_detail" style="color: #64686A">Not decided ¡¡¡</p>
-      </div>
-    </div>
-  </div>
-    <!--
-  <div class="card" id="card4">
     <img src="/card3_null.jpg" alt="no need">
     <div class="details">
       <h2 id="app_name" style="color: #64686A">Naa</h2>
-      <div class="card4p">
-        <p id="app_detail" style="color: #64686A">Not decided ¡¡¡</p>
+      <div class="card3p">
+        <p id="app_detail">Click to view full detail.</p>
       </div>
     </div>
   </div>
--->
+
+  <div id="app_view">
+    <h2 id="app_view_app_name" style="font-family: 'man_extbol'">Li-fi</h2>
+    <div id="lifiTechDetail">
+      <h3 id="lifiWhat">What is LiFi?</h3>
+      <br>
+      <p id="lifi">LiFi is a developing technology, in which any type of data is transmitted using light rays. It is done by encoding the data (ie. to be transferred) into binary form and blinking the light source (transmitter) according to it in a very certain time interval and when that light rays fall on a light sensative sensor it is converted into binary form and is decoded by the receiver device.</p>
+    </div>
+    <br>
+    <br>
+    <div id="app_view_updates_cont">
+      <h3 id="app_view_updates_head">Updates</h3><br>
+      <p id="app_view_updates_para">• More stable and efficient version will be uploaded soon</p>
+    </div>
+    <div id="app_view_download">
+      <div id="download_cont">
+          <!--<div id="line"></div>
+          -->
+          <h3 class="h3">Download apk</h3><br>
+          <p id="lifi" style="display: inline; font-size: 80%;">*This app is an experiment, works on the same working principles of lifi</p><br>
+          <p id="lifi" style="display: inline; font-size: 80%">Guides/Steps to use the app is given in the app itself</p>
+      </div>
+    </div>
+  </div>
+  
+  <div id=""></div>
 
 </body>
 <script>
   const mode = screen.orientation;
   const imga = document.getElementById("imga");
   const pad = window.getComputedStyle(card1);
-  const card1p = document.querySelector(".card1p");
-  const card1ps = window.getComputedStyle(card1p);
-  const card3p = document.querySelector(".card3p");
-  const card3ps = window.getComputedStyle(card3p);
-
-  console.log(card1ps.height);
+  
+  var card1state = 0;
+  var down = 0;
+  
+  try{
   
   //card3p.style.height = card1p.clientHeight + "px";
+  console.log(card1.offsetWidth, card1.clientWidth);
   console.log(card1.offsetHeight, card2.offsetHeight, card3.clientHeight);
   card3.style.height = (card1.clientHeight + "px");
   card2.style.height = (card1.clientHeight + "px");
@@ -242,5 +400,76 @@
       console.log(card1.clientHeight, card1.clientWidth);
       card3.style.height = card1.clientHeight - 2*pad.marginTop - 2*parseFloat(pad.paddingTop) + "px";
     });
+
+    $('#card1').click(function() {
+      console.log("card1 click");
+      if (card1state == 0) {
+        card1state = 1;
+        card1.style.border = "0.2vw solid #C9A444"
+        card1.style.boxShadow = "0vw 0vh 2vw #fbdf63"
+        card1.style.transform = "scale(1.03)"
+        $('#app_view').css("display", "block")
+        if (i == -5) {
+          i = -1
+          l = 8
+          $('.h3').html("Download again")
+        }
+        window.setTimeout(function() {
+          window.scrollTo({ top: 1000 , behavior: 'smooth' })
+        }, 300)
+      } else {
+        card1state = 0;
+        card1.style.border = "0.2vw solid black"
+        card1.style.boxShadow = "0.5vw 0.5vh black, 0.4vw 0.4vh black, 0.3vw 0.3vh black ,0.2vw 0.2vh black, 0.1vw 0.1vh black"
+        card1.style.transform = "scale(1)"
+        window.setTimeout(function() {
+          window.scrollTo({ top: 0 , behavior: 'smooth' });
+        }, 300)
+      }
+    });
+    window.addEventListener("scroll",
+    function() {
+      if ($('#app_view').css("display") == "block" && window.pageYOffset == 0 && card1state == 0) {
+        $('#app_view').css("display", "none")
+      }
+    })
+    
+    $('.h3').hover( 
+      function() {
+        $('.h3').css("transition", "0.3s")
+        $('.h3').css("border-radius", "0.2em")
+      },
+      function() {
+        $('.h3').css("border-radius", "0.5em")
+      }
+    );
+    
+    var st = "Downloading.."
+    let i = -1
+    let l = 8
+    
+    function type() {
+      if (i != -5) {
+        $('.h3').html("Download apk".slice(0, i));
+        i--;
+        window.setTimeout(type, 100);
+      }
+      else if (i == -5 && l != 14) {
+        $('.h3').html(st.slice(0, l));
+        l++;
+        window.setTimeout(type, 100);
+      }
+      else if (i == -5 && l == 14) {
+        $('.h3').css("border-radius", "0.5em")
+      }
+    }
+      
+    $('.h3').click(function() {
+      window.setTimeout(type, 500)
+    });
+    
+  }catch (err) {
+    throw err
+  }
 </script>
 </html>
