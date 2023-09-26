@@ -28,7 +28,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 1.5vw;
     row-gap: 1.5vh;
-    margin: 0 1.3vw 1vh 0.8vw;
+    margin: 1vh 1.3vw 1vh 0.8vw;
   }
   .card {
     padding: 1vw;
@@ -58,59 +58,60 @@
   }
   @font-face {
     font-family: regu;
-    src: url(fonts/regular.ttf);
+    src: url(regular.ttf);
   }
   @font-face {
     font-family: bold;
-    src: url(fonts/boldItalic.ttf);
+    src: url(boldItalic.ttf);
   }
   @font-face {
     font-family: antonio-light;
-    src: url(fonts/Antonio-Light.ttf);
+    src: url(Antonio-Light.ttf);
   }
   @font-face {
     font-family: app_name;
-    src: url(fonts/NunitoSans-ExtraBold.ttf);
+    src: url(NunitoSans-ExtraBold.ttf);
   }
   @font-face {
     font-family: app_detail;
-    src: url(fonts/NunitoSans-Regular.ttf);
+    src: url(NunitoSans-Regular.ttf);
   }
   @font-face {
     font-family: man_reg;
-    src: url(fonts/manrope.regular.otf);
+    src: url(manrope.regular.otf);
   }
   @font-face {
     font-family: man_med;
-    src: url(fonts/manrope.medium.otf);
+    src: url(manrope.medium.otf);
   }
   @font-face {
     font-family: man_bol;
-    src: url(fonts/manrope.bold.otf);
+    src: url(manrope.bold.otf);
   }
   @font-face {
     font-family: man_extbol;
-    src: url(fonts/manrope.extrabold.otf);
+    src: url(manrope.extrabold.otf);
   }
   @font-face {
     font-family: man_thin;
-    src: url(fonts/manrope.thin.otf);
+    src: url(manrope.thin.otf);
   }
   @font-face {
     font-family: pro_bol_ita;
-    src: url(fonts/ProductSansBoldItalic.ttf);
+    src: url(ProductSansBoldItalic.ttf);
   }
   @font-face {
     font-family: pro_reg;
-    src: url(fonts/ProductSansRegular.ttf);
+    src: url(ProductSansRegular.ttf);
   }
   @font-face {
     font-family: got_bol;
-    src: url(fonts/GothamPro-Bold.ttf)
+    src: url(GothamPro-Bold.ttf)
   }
   h1{
-    font-size: 4vw;
-    Display: Inline;
+    margin: 1vh 0 0 0;
+    font-size: 5vw;
+    display: inline-block;
   }
   h4{
     user-select: none;
@@ -140,6 +141,7 @@
     margin: 0 0.8vw
   }
   .dev_detail{
+    line-height: 3vh;
     font-family: "man_med";
     font-size: 3vw;
     display: inline;
@@ -154,6 +156,7 @@
     84%{color: black}
   }
   #ll{
+    line-height: 3vh;
     font-family: "man_bol";
     font-size: 3.1vw;
     display: inline;
@@ -250,10 +253,18 @@
     font-size: 115%;
   }
   @media screen and (orientation: landscape) {
+    .dev_detail {
+      line-height: 5.5vh;
+      font-size: 2vw;
+    }
+    #ll {
+      line-height: 5.5vh;
+      font-size: 2.1vw;
+    }
     #card_contain {
       grid-template-columns: repeat(3, minmax(0, 1fr));
       column-gap: 1vw;
-      margin: 0 1.3vw 1.8vh 0.8vw;
+      margin: 2vh 1.3vw 1.8vh 0.8vw;
     }
     .card {
       padding: 0.7vw;
