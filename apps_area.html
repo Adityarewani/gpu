@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatable" content="IE-edge, chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script type="text/javascript" src="https://adityarewani.github.io/gpu/jquery-3.7.1.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="jquery-3.7.1.js"></script>
   <title>My Apps</title>
 </head>
 
 <style id="sty">
   body{
-    padding-left: 0%;
-    padding-right: 0%;
+    padding: 0vw;
+    margin: 0;
   }
   #card1:hover{
     box-shadow: 0vw 0vh 2vw #fbdf63;
@@ -23,10 +23,15 @@
   #card3:hover{
     box-shadow: 0vw 0vh 2vw #D3DCE0;
   }
+  #card_contain{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.5vw;
+    row-gap: 1.5vh;
+    margin: 0 1.3vw 1vh 0.8vw;
+  }
   .card {
-    width: 29.7%;
-    background: #fbdf63;
-    padding: 1%;
+    padding: 1vw;
     border-radius: 4%/4%;
     display: inline-table;
     box-shadow: 0.5vw 0.5vh black,
@@ -38,18 +43,12 @@
     transition: 0.2s;
   }
   #card1{
-    margin-left: 0.2vw;
-    margin-right: 0%;
-    margin-bottom: 2.5vw;
+    background: #fbdf63;
   }
   #card2{
     background: #EB7457;
-    margin-right: 0%;
-    margin-left: 0%;
   }
   #card3{
-    margin-right: 0%;
-    margin-bottom: 1%;
     background: #D3DCE0;
   }
   img{
@@ -59,58 +58,58 @@
   }
   @font-face {
     font-family: regu;
-    src: url(https://adityarewani.github.io/gpu/fonts/regular.ttf);
+    src: url(regular.ttf);
   }
   @font-face {
     font-family: bold;
-    src: url(https://adityarewani.github.io/gpu/fonts/boldItalic.ttf);
+    src: url(boldItalic.ttf);
   }
   @font-face {
     font-family: antonio-light;
-    src: url(https://adityarewani.github.io/gpu/fonts/Antonio-Light.ttf);
+    src: url(Antonio-Light.ttf);
   }
   @font-face {
     font-family: app_name;
-    src: url(https://adityarewani.github.io/gpu/fonts/NunitoSans-ExtraBold.ttf);
+    src: url(NunitoSans-ExtraBold.ttf);
   }
   @font-face {
     font-family: app_detail;
-    src: url(https://adityarewani.github.io/gpu/fonts/NunitoSans-Regular.ttf);
+    src: url(NunitoSans-Regular.ttf);
   }
   @font-face {
     font-family: man_reg;
-    src: url(https://adityarewani.github.io/gpu/fonts/manrope.regular.otf);
+    src: url(manrope.regular.otf);
   }
   @font-face {
     font-family: man_med;
-    src: url(https://adityarewani.github.io/gpu/fonts/manrope.medium.otf);
+    src: url(manrope.medium.otf);
   }
   @font-face {
     font-family: man_bol;
-    src: url(https://adityarewani.github.io/gpu/fonts/manrope.bold.otf);
+    src: url(manrope.bold.otf);
   }
   @font-face {
     font-family: man_extbol;
-    src: url(https://adityarewani.github.io/gpu/fonts/manrope.extrabold.otf);
+    src: url(manrope.extrabold.otf);
   }
   @font-face {
     font-family: man_thin;
-    src: url(https://adityarewani.github.io/gpu/fonts/manrope.thin.otf);
+    src: url(manrope.thin.otf);
   }
   @font-face {
     font-family: pro_bol_ita;
-    src: url(https://adityarewani.github.io/gpu/fonts/ProductSansBoldItalic.ttf);
+    src: url(ProductSansBoldItalic.ttf);
   }
   @font-face {
     font-family: pro_reg;
-    src: url(https://adityarewani.github.io/gpu/fonts/ProductSansRegular.ttf);
+    src: url(ProductSansRegular.ttf);
   }
   @font-face {
     font-family: got_bol;
-    src: url(https://adityarewani.github.io/gpu/fonts/GothamPro-Bold.ttf)
+    src: url(GothamPro-Bold.ttf)
   }
   h1{
-    font-size: 4.5vw;
+    font-size: 4vw;
     Display: Inline;
   }
   h4{
@@ -136,9 +135,13 @@
     margin-top: 0;
     margin-bottom: 0;
   }
+  #dev_detail_contain {
+    display: inline-block;
+    margin: 0 0.8vw
+  }
   .dev_detail{
     font-family: "man_med";
-    font-size: 1.2rem;
+    font-size: 2vw;
     display: inline;
   }
   @keyframes name_col{
@@ -152,10 +155,10 @@
   }
   #ll{
     font-family: "man_bol";
-    font-size: 1.2rem;
+    font-size: 2.1vw;
     display: inline;
     white-space: nowrap;
-    -webkit-text-stroke-width: 0.03rem;
+    -webkit-text-stroke-width: 0.1vw;
     -webkit-text-stroke-color: black;
     animation-name: name_col;
     animation-duration: 15s;
@@ -246,32 +249,24 @@
     font-family: "pro_reg";
     font-size: 115%;
   }
-    @media screen and (max-width: 600px) {
-       .dev_detail {
-          font-size: 102px;
-       }
-       #ll{
-          font-size: 12px;
-          -webkit-text-stroke-width: 0.6px;
-       }
-       h1{
-          font-size: 20px;
-       }
+  @media screen and (orientation: landscape) {
+    #card_contain {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: 1vw;
+      margin: 0 1.3vw 1.8vh 0.8vw;
     }
-    @media screen and (width: 1080px) {
-       .dev_detail {
-          font-size: 50px;
-          color: red;
-       }
+    .card {
+      padding: 0.7vw;
     }
+  }
 </style>
 
 <body>
   
-  <h1 style="font-family: regu; margin-left: 1%;">Apps made..</h1><h1 style="font-family: bold;">BY ME</h1>
+  <h1 style="font-family: regu; margin-left: 0.8vw;">Apps made..</h1><h1 style="font-family: bold;">BY ME</h1>
   <br>
   <br>
-  <div style="width: 100%; padding-left: 1%">
+  <div id="dev_detail_contain">
     <p class="dev_detail">Apps or mobile softwares that are made by me ie.</p>
     <p id="ll">Aditya Rewani</p>
     <br>
@@ -280,36 +275,35 @@
   </div>
   <br>
   <br>
-
   
-  <div class="card" id="card1">
-    <div>
+  <div id="card_contain">
+    <div class="card" id="card1">
       <img id="imga" src="lifi-banner.jpg" alt="no need">
-    </div>
-    <div class="details">
-      <h2 id="app_name">Li-fi</h2>
-      <div class="card1p">
-        <p id="app_detail">Click to view full detail. </p>
+      <div class="details">
+        <h2 id="app_name">Li-fi</h2>
+        <div class="card1p">
+          <p id="app_detail">Click to view full detail. </p>
+        </div>
       </div>
     </div>
-  </div>
+      
+    <div class="card" id="card2">
+      <img id="imga2" src="card2_null.jpg" alt="no need">
+      <div class="details">
+        <h2 id="app_name">Game</h2>
+        <div class="card2p">
+          <p id="app_detail">Click to view full detail.</p>
+        </div>
+      </div>
+    </div>
     
-  <div class="card" id="card2">
-    <img src="card2_null.jpg" alt="no need">
-    <div class="details">
-      <h2 id="app_name" style="color: #1C0E0A">Game</h2>
-      <div class="card2p">
-        <p id="app_detail">Click to view full detail.</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="card" id="card3">
-    <img src="card3_null.jpg" alt="no need">
-    <div class="details">
-      <h2 id="app_name" style="color: #64686A">Naa</h2>
-      <div class="card3p">
-        <p id="app_detail">Click to view full detail.</p>
+    <div class="card" id="card3">
+      <img id="imga3" src="card3_null.jpg" alt="no need">
+      <div class="details">
+        <h2 id="app_name" style="color: #64686A">Naa</h2>
+        <div class="card3p">
+          <p id="app_detail">Click to view full detail.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -344,6 +338,8 @@
 <script>
   const mode = screen.orientation;
   const imga = document.getElementById("imga");
+  const imga2 = document.getElementById("imga2");
+  const imga3 = document.getElementById("imga3");
   const pad = window.getComputedStyle(card1);
   
   var card1state = 0;
@@ -352,6 +348,9 @@
   try{
   
   //card3p.style.height = card1p.clientHeight + "px";
+  console.log(imga.clientHeight);
+  console.log(imga2.clientHeight);
+  console.log(imga3.clientHeight);
   console.log(card1.offsetWidth, card1.clientWidth);
   console.log(card1.offsetHeight, card2.offsetHeight, card3.clientHeight);
   card3.style.height = (card1.clientHeight + "px");
@@ -362,30 +361,6 @@
   console.log(card1.offsetHeight, card2.offsetHeight, card3.clientHeight);
   //card1.style.height = (card1.clientHeight + card1.clientWidth - 4*parseFloat(pad.paddingTop)) + "px";
   
-  if (mode.type == "portrait-primary" || mode.type == "portrait-secondary") {
-    console.log("orientation", "potrait");
-    card1.style.width = "46.2%";
-    card2.style.width = "46.2%";
-    card3.style.width = "46.2%";
-    card1.style.marginLeft = "0.5vw";
-    card1.style.martinRight = "0.5vw";
-    card1.style.marginBottom = "2.5vw";
-    card2.style.marginLeft = "0.5vw";
-    card3.style.marginLeft = "0.5vw";
-  }
-  else {
-    console.log("orientation", "landscape");
-    card1.style.width = "29.7%";
-    card2.style.width = "29.7%";
-    card3.style.width = "29.7%";
-    card1.style.martinRight = "0%";
-    card1.style.marginBottom = "0.2vw";
-    card3.style.marginLeft = "0%";
-    card2.style.marginLeft = "0.5vw";
-    card2.style.martinRight = "0.5vw";
-    card3.style.marginLeft = "0.5vw";
-  }
-
   //cards();
   mode.addEventListener('change',
   
@@ -397,29 +372,6 @@
   
       //console.log(card1, card2, card3);
   
-      if (mode.type == "portrait-primary" || mode.type == "portrait-secondary") {
-        console.log("orientation", "potrait");
-        card1.style.width = "46.2%";
-        card2.style.width = "46.2%";
-        card3.style.width = "46.2%";
-        card1.style.marginLeft = "0.5vw";
-        card1.style.martinRight = "0.5vw";
-        card1.style.marginBottom = "2.5vw";
-        card2.style.marginLeft = "0.5vw";
-        card3.style.marginLeft = "0.5vw";
-      }
-      else {
-        console.log("orientation", "landscape");
-        card1.style.width = "29.7%";
-        card2.style.width = "29.7%";
-        card3.style.width = "29.7%";
-        card1.style.martinRight = "0%";
-        card1.style.marginBottom = "0.2vw";
-        card3.style.marginLeft = "0%";
-        card2.style.marginLeft = "0.5vw";
-        card2.style.martinRight = "0.5vw";
-        card3.style.marginLeft = "0.5vw";
-      }
       console.log(card1.clientHeight, card1.clientWidth);
       card3.style.height = card1.clientHeight - 2*pad.marginTop - 2*parseFloat(pad.paddingTop) + "px";
     });
