@@ -31,6 +31,7 @@
     margin: 1vh 1.8vw 1vh 1.3vw;
   }
   .card {
+    height: 100%;
     padding: 1vw;
     border-radius: 4%/4%;
     display: inline-table;
@@ -117,24 +118,22 @@
     user-select: none;
   }
   #app_name{
-    font-size: 1.2rem;
-    color: #3B3417;
+    font-size: 3vw;
+    color: black;
     user-select: none;
     font-family: "man_extbol";
     display: inline-block;
-    margin-bottom: 1rem;
+    margin: 0.3em 0 0.1em 0.3vw;
   }
   #app_detail{
     display: inline-block;
-    font-size: 0.7rem;
+    font-size: 2vw;
     color: black;
     user-select: none;
     font-family: "app_name";
     border-bottom: 3px solid white;
-    padding-left: 1%;
     padding-right: 1%;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0 0 0.5em 0.3vw;
   }
   #dev_detail_contain {
     display: inline-block;
@@ -168,7 +167,7 @@
   }
   #app_view{
     width: full;
-    margin-top: 2%;
+    margin-top: 4%;
     margin-bottom: 1%;
     margin-left: 1%;
     margin-right: 1%;
@@ -267,6 +266,12 @@
     }
     .card {
       padding: 0.7vw;
+    }
+    #app_name {
+      font-size: 2.2vw;
+    }
+    #app_detail {
+      font-size: 1.2vw;
     }
   }
 </style>
@@ -402,7 +407,15 @@
         window.setTimeout(function() {
           window.scrollTo({ top: 1000 , behavior: 'smooth' })
         }, 300)
-      } else {
+      }
+      else if (card1state == 1 && window.pageYOffset == 0) {
+        $('#app_view').css("display", "none")
+        card1state = 0;
+        card1.style.border = "0.2vw solid black"
+        card1.style.boxShadow = "0.5vw 0.5vh black, 0.4vw 0.4vh black, 0.3vw 0.3vh black ,0.2vw 0.2vh black, 0.1vw 0.1vh black"
+        card1.style.transform = "scale(1)"
+      }
+      else {
         card1state = 0;
         card1.style.border = "0.2vw solid black"
         card1.style.boxShadow = "0.5vw 0.5vh black, 0.4vw 0.4vh black, 0.3vw 0.3vh black ,0.2vw 0.2vh black, 0.1vw 0.1vh black"
@@ -416,6 +429,7 @@
     function() {
       if ($('#app_view').css("display") == "block" && window.pageYOffset == 0 && card1state == 0) {
         $('#app_view').css("display", "none")
+        console.log('scroll')
       }
     })
     
@@ -457,4 +471,4 @@
     throw err
   }
 </script>
-          </html>
+</html>
