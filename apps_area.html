@@ -45,12 +45,26 @@
   }
   #card1{
     background: #fbdf63;
+    animation-name: ;
+    animation-duration: 1s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
   }
   #card2{
     background: #EB7457;
+    z-index: 1;
   }
   #card3{
     background: #D3DCE0;
+    z-index: 1;
+  }
+  @keyframes shado {
+    0% {
+      box-shadow: 0vw 0vh 0vw #fbdf63
+    }
+    100% {
+      box-shadow: 0vw 0vh 2vw #fbdf63
+    }
   }
   img{
     width: 100%;
@@ -59,55 +73,55 @@
   }
   @font-face {
     font-family: regu;
-    src: url(fonts/regular.ttf);
+    src: url(regular.ttf);
   }
   @font-face {
     font-family: bold;
-    src: url(fonts/boldItalic.ttf);
+    src: url(boldItalic.ttf);
   }
   @font-face {
     font-family: antonio-light;
-    src: url(fonts/Antonio-Light.ttf);
+    src: url(Antonio-Light.ttf);
   }
   @font-face {
     font-family: app_name;
-    src: url(fonts/NunitoSans-ExtraBold.ttf);
+    src: url(NunitoSans-ExtraBold.ttf);
   }
   @font-face {
     font-family: app_detail;
-    src: url(fonts/NunitoSans-Regular.ttf);
+    src: url(NunitoSans-Regular.ttf);
   }
   @font-face {
     font-family: man_reg;
-    src: url(fonts/manrope.regular.otf);
+    src: url(manrope.regular.otf);
   }
   @font-face {
     font-family: man_med;
-    src: url(fonts/manrope.medium.otf);
+    src: url(manrope.medium.otf);
   }
   @font-face {
     font-family: man_bol;
-    src: url(fonts/manrope.bold.otf);
+    src: url(manrope.bold.otf);
   }
   @font-face {
     font-family: man_extbol;
-    src: url(fonts/manrope.extrabold.otf);
+    src: url(manrope.extrabold.otf);
   }
   @font-face {
     font-family: man_thin;
-    src: url(fonts/manrope.thin.otf);
+    src: url(manrope.thin.otf);
   }
   @font-face {
     font-family: pro_bol_ita;
-    src: url(fonts/ProductSansBoldItalic.ttf);
+    src: url(ProductSansBoldItalic.ttf);
   }
   @font-face {
     font-family: pro_reg;
-    src: url(fonts/ProductSansRegular.ttf);
+    src: url(ProductSansRegular.ttf);
   }
   @font-face {
     font-family: got_bol;
-    src: url(fonts/GothamPro-Bold.ttf)
+    src: url(GothamPro-Bold.ttf)
   }
   h1{
     margin: 1vh 0 0 0;
@@ -398,6 +412,7 @@
         card1.style.border = "0.2vw solid #C9A444"
         card1.style.boxShadow = "0vw 0vh 2vw #fbdf63"
         card1.style.transform = "scale(1.03)"
+        card1.style.animationName = 'shado'
         $('#app_view').css("display", "block")
         if (i == -5) {
           i = -1
@@ -414,12 +429,14 @@
         card1.style.border = "0.2vw solid black"
         card1.style.boxShadow = "0.5vw 0.5vh black, 0.4vw 0.4vh black, 0.3vw 0.3vh black ,0.2vw 0.2vh black, 0.1vw 0.1vh black"
         card1.style.transform = "scale(1)"
+        card1.style.animationName = ''
       }
       else {
         card1state = 0;
         card1.style.border = "0.2vw solid black"
         card1.style.boxShadow = "0.5vw 0.5vh black, 0.4vw 0.4vh black, 0.3vw 0.3vh black ,0.2vw 0.2vh black, 0.1vw 0.1vh black"
         card1.style.transform = "scale(1)"
+        card1.style.animationName = ''
         window.setTimeout(function() {
           window.scrollTo({ top: 0 , behavior: 'smooth' });
         }, 300)
