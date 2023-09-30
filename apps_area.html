@@ -60,10 +60,12 @@
   }
   @keyframes shado {
     0% {
-      box-shadow: 0vw 0vh 0vw #fbdf63
+      box-shadow: 0vw 0vh 0vw #fbdf63;
+      transform: scale(1.03);
     }
     100% {
-      box-shadow: 0vw 0vh 2vw #fbdf63
+      box-shadow: 0vw 0vh 2vw #fbdf63;
+      transform: scale(1.025);
     }
   }
   img{
@@ -233,7 +235,7 @@
   }
   .h3{
     font-family: "man_thin";
-    font-size: 140%;
+    font-size: 2.7vw;
     background-color: #212121;
     color: white;
     display: inline-block;
@@ -251,7 +253,7 @@
   }
   #app_view_updates_head{
     font-family: 'got_bol';
-    font-size: 6vw;
+    font-size: max(5.5vw, 1px);
     margin: 0;
     display: inline-block;
   }
@@ -261,14 +263,17 @@
     margin-left: 1%;
     margin-top: 1.5%;
     font-family: "pro_reg";
-    font-size: 3.5vw;
+    font-size: 3vw;
   }
   #notice {
     background-color: red;
     font-family: "pro_reg";
-    display: inline;
+    display: inline-block;
     font-size: 1.5vw;
     margin: 0;
+    padding: 0;
+    vertical-align: top;
+    line-height: 1px
   }
   @media screen and (orientation: landscape) {
     h1 {
@@ -355,7 +360,7 @@
     <div id="lifiTechDetail">
       <h3 id="lifiWhat">What is LiFi?</h3>
       <br>
-      <p id="lifi">LiFi is a developing technology, in which any type of data is transmitted using light rays. It is done by encoding the data (ie. to be transferred) into binary form and blinking the light source (transmitter) according to it in a very certain time interval and when that light rays fall on a light sensative sensor it is converted into binary form and is decoded by the receiver device.</p>
+      <p id="lifi">LiFi is a new and a growing technology, in which data is transmitted using light rays between a transmitter[T] and receiver[R] devices. And a bunch of T and R devices can even create a network with a data transmission speed of 3,00,000 ᴋᴍ/s..</p>
     </div>
     <br>
     <br>
@@ -365,11 +370,9 @@
     </div>
     <div id="app_view_download">
       <div id="download_cont">
-          <!--<div id="line"></div>
-          -->
           <h3 class="h3">Download apk</h3><br>
-          <p id="notice">*This app is an experiment, works on the same working principles of lifi</p><br>
-          <p id="notice">Guides/Steps to use the app is given in the app itself</p>
+          <div id="notice">*This app is an experiment, works on the same working principles of lifi</div><br>
+          <div id="notice" style="">Guides/Steps to use the app is given in the app itself</div>
       </div>
     </div>
   </div>
@@ -425,7 +428,6 @@
         card1.style.border = "0.2vw solid #C9A444"
         card1.style.boxShadow = "0vw 0vh 2vw #fbdf63"
         card1.style.transform = "scale(1.03)"
-        card1.style.animationName = 'shado'
         $('#app_view').css("display", "block")
         if (i == -5) {
           i = -1
@@ -434,6 +436,7 @@
         }
         window.setTimeout(function() {
           window.scrollTo({ top: 1000 , behavior: 'smooth' })
+          card1.style.animationName = 'shado'
         }, 300)
       }
       else if (card1state == 1 && window.pageYOffset == 0) {
