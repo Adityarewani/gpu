@@ -227,11 +227,9 @@
     width: 100%;
     height: 10%;
     margin-top: 2%;
-    overflow: hidden;
   }
   #download_cont{
     width: 100%;
-    position: relative;
   }
   .h3{
     font-family: "man_thin";
@@ -239,7 +237,7 @@
     background-color: #212121;
     color: white;
     display: inline-block;
-    padding: 15px 25px;
+    padding: 1rem 2rem;
     border-radius: 0.5em;
     box-shadow: 0 0 100% #212121;
     margin-bottom: 1%;
@@ -253,7 +251,7 @@
   }
   #app_view_updates_head{
     font-family: 'got_bol';
-    font-size: max(5.5vw, 1px);
+    font-size: 5.5vw;
     margin: 0;
     display: inline-block;
   }
@@ -266,14 +264,7 @@
     font-size: 3vw;
   }
   #notice {
-    background-color: red;
-    font-family: "pro_reg";
-    display: inline-block;
-    font-size: 1.5vw;
-    margin: 0;
-    padding: 0;
-    vertical-align: top;
-    line-height: 1px
+    font-size: 1vw;
   }
   @media screen and (orientation: landscape) {
     h1 {
@@ -304,6 +295,18 @@
     }
     #app_detail {
       font-size: 1.2vw;
+    }
+    #app_view_updates_head {
+      font-size: 3vw;
+    }
+    #app_view_updates_para {
+      font-size: 1.5vw
+    }
+    .h3 {
+      font-size: 2vw;
+    }
+    #notice {
+      font-size: 0.7vw;
     }
   }
 </style>
@@ -371,13 +374,11 @@
     <div id="app_view_download">
       <div id="download_cont">
           <h3 class="h3">Download apk</h3><br>
-          <div id="notice">*This app is an experiment, works on the same working principles of lifi</div><br>
+          <div id="notice">*This app is an experiment, works on the same working principles of lifi</div>
           <div id="notice" style="">Guides/Steps to use the app is given in the app itself</div>
       </div>
     </div>
   </div>
-  
-  <div id=""></div>
 
 </body>
 <script>
@@ -498,6 +499,7 @@
       
     $('.h3').click(function() {
       window.setTimeout(type, 500)
+      window.location = "app_lifi.apk"
     });
     
   }catch (err) {
