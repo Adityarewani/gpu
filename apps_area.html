@@ -527,6 +527,7 @@
         $('#app_view').css("display", "none")
         console.log('scroll')
       }
+      console.log($(window).scrollTop(), $(window).height(), $(document).height())
       if ($(window).scrollTop() + $(window).height() == $(document).height()) {
         $('#roam').css("animationName", "roma")
       }
