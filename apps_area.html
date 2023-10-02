@@ -195,42 +195,59 @@
     text-align: center;
     border: 0vw solid yellow;
     box-shadow: 0 0 2vw #fbdf63;
-    display: none;
+    display: block;
+    transition: 2s;
   }
   #roam {
     background-color: orangered;
     position: absolute;
     height: 10vw;
-    width: 10vw;
+    width: 20vw;
     opacity: 100%;
     animation-name: ;
     animation-duration: 5s;
-    animation-direction: linear;
+    animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
-    top: 36vw;
-    z-index: -1;
+    transition: 2s;
+    top: 1vw;
+    z-index: -2;
     filter: blur(3vw)
   }
   @keyframes roma {
     0% {
+      margin: 0 0 0 0;
       top: 1vw;
       left: 1vw;
+      width: 20vw;
+      height: 10vw;
     }
-    25% {
+    35% {
+      margin: 0 0 0 0;
       top: 1vw;
       left: 87vw;
+      width: 10vw;
+      height: 20vw;
     }
     50% {
+      margin: 0 0 0 -10vw;
       left: 87vw;
       top: 36vw;
+      width: 20vw;
+      height: 10vw;
     }
-    75%{
+    85%{
+      margin: -10vw 0 0 0;
       top: 36vw;
       left: 1vw;
+      width: 10vw;
+      height: 20vw;
     }
     100%{
+      margin: 0 0 0 0;
       left: 1vw;
       top: 1vw;
+      width: 20vw;
+      height: 10vw;
     }
   }
   #app_view_app_name{
@@ -477,6 +494,8 @@
           i = -1
           l = 8
           $('.h3').html("Download again")
+          $('#app_view').css("boxShadow", "0 0 2vw limegreen")
+          $('#roam').css("display", "none")
         }
         window.setTimeout(function() {
           window.scrollTo({ top: 1000 , behavior: 'smooth' })
@@ -532,6 +551,8 @@
         $('.h3').html("Download apk".slice(0, i));
         i--;
         window.setTimeout(type, 100);
+        $('#app_view').css("boxShadow", "0 0 2vw limegreen")
+        $('#roam').css("display", "none")
       }
       else if (i == -5 && l != 14) {
         $('.h3').html(st.slice(0, l));
@@ -545,7 +566,7 @@
       
     $('.h3').click(function() {
       window.setTimeout(type, 500)
-      window.location = "app_lifi.apk"
+      //window.location = "app_lifi.apk"
     });
     
   }catch (err) {
