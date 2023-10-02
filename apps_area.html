@@ -183,17 +183,55 @@
   }
   #app_view{
     width: full;
-    margin-top: 4%;
-    margin-bottom: 1%;
-    margin-left: 1%;
-    margin-right: 1%;
+    margin-top: 4vw;
+    margin-bottom: 1vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
     padding: 1%;
+    opacity: 100%;
+    position: relative;
     background-color: #fbdf63;
     border-radius: 2vw;
     text-align: center;
     border: 0vw solid yellow;
     box-shadow: 0 0 2vw #fbdf63;
     display: none;
+  }
+  #roam {
+    background-color: orangered;
+    position: absolute;
+    height: 10vw;
+    width: 10vw;
+    opacity: 100%;
+    animation-name: ;
+    animation-duration: 5s;
+    animation-direction: linear;
+    animation-iteration-count: infinite;
+    top: 36vw;
+    z-index: -1;
+    filter: blur(3vw)
+  }
+  @keyframes roma {
+    0% {
+      top: 1vw;
+      left: 1vw;
+    }
+    25% {
+      top: 1vw;
+      left: 87vw;
+    }
+    50% {
+      left: 87vw;
+      top: 36vw;
+    }
+    75%{
+      top: 36vw;
+      left: 1vw;
+    }
+    100%{
+      left: 1vw;
+      top: 1vw;
+    }
   }
   #app_view_app_name{
     display: inline-block;
@@ -363,6 +401,7 @@
   </div>
 
   <div id="app_view">
+    <div id="roam"></div>
     <h2 id="app_view_app_name" style="font-family: 'man_extbol'">Li-fi</h2>
     <div id="lifiTechDetail">
       <h3 id="lifiWhat">What is LiFi?</h3>
@@ -397,34 +436,34 @@
   
   try{
   
-  //card3p.style.height = card1p.clientHeight + "px";
-  console.log(imga.clientHeight);
-  console.log(imga2.clientHeight);
-  console.log(imga3.clientHeight);
-  console.log(card1.offsetWidth, card1.clientWidth);
-  console.log(card1.offsetHeight, card2.offsetHeight, card3.clientHeight);
-  card3.style.height = (card1.clientHeight + "px");
-  card2.style.height = (card1.clientHeight + "px");
-  card1.style.height = (card1.clientHeight + "px");
-  card2.style.marginTop = "0px";
-  
-  console.log(card1.offsetHeight, card2.offsetHeight, card3.clientHeight);
-  //card1.style.height = (card1.clientHeight + card1.clientWidth - 4*parseFloat(pad.paddingTop)) + "px";
-  
-  //cards();
-  mode.addEventListener('change',
-  
-    function() {
-  
-      const card1 = document.querySelector("#card1");
-      const card2 = document.querySelector("#card2");
-      const card3 = document.querySelector("#card3");
-  
-      //console.log(card1, card2, card3);
-  
-      console.log(card1.clientHeight, card1.clientWidth);
-      card3.style.height = card1.clientHeight - 2*pad.marginTop - 2*parseFloat(pad.paddingTop) + "px";
-    });
+    //card3p.style.height = card1p.clientHeight + "px";
+    console.log(imga.clientHeight);
+    console.log(imga2.clientHeight);
+    console.log(imga3.clientHeight);
+    console.log(card1.offsetWidth, card1.clientWidth);
+    console.log(card1.offsetHeight, card2.offsetHeight, card3.clientHeight);
+    card3.style.height = (card1.clientHeight + "px");
+    card2.style.height = (card1.clientHeight + "px");
+    card1.style.height = (card1.clientHeight + "px");
+    card2.style.marginTop = "0px";
+    
+    console.log(card1.offsetHeight, card2.offsetHeight, card3.clientHeight);
+    //card1.style.height = (card1.clientHeight + card1.clientWidth - 4*parseFloat(pad.paddingTop)) + "px";
+    
+    //cards();
+    mode.addEventListener('change',
+    
+      function() {
+    
+        const card1 = document.querySelector("#card1");
+        const card2 = document.querySelector("#card2");
+        const card3 = document.querySelector("#card3");
+        
+        //console.log(card1, card2, card3);
+    
+        console.log(card1.clientHeight, card1.clientWidth);
+      }
+    );
 
     $('#card1').click(function() {
       console.log("card1 click");
@@ -468,6 +507,9 @@
       if ($('#app_view').css("display") == "block" && window.pageYOffset == 0 && card1state == 0) {
         $('#app_view').css("display", "none")
         console.log('scroll')
+      }
+      if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+        $('#roam').css("animationName", "roma")
       }
     })
     
