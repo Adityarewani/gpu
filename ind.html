@@ -1,267 +1,204 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  
   <head>
-    <link rel="icon" href="20221204_122646.png"/>
-    <script src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython_stdlib.js"></script>
-    <meta name="theme-color" content="#081f1b">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatable" content="IE-edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a3a45">
+    <script type="text/javascript" src="jquery-3.7.1.js"></script>
+    <title>Hello Guys</title>
   </head>
+  
   <style>
-    body{
-      zoom: 200%;
+    body {
+      margin: 0;
+      padding: 0;
     }
-    p{
-      font-size: 0.8vw;
+    @font-face {
+      font-family: montmed;
+      src: url(fonts/Montserrat-Medium.ttf);
     }
-    h6{
-      text-align: center;
+    @font-face {
+      font-family: nexhev;
+      src: url(fonts/Nexa-Heavy.ttf);
     }
-    #holder , .holder2{
-      text-align: center;
+    #parent {
+      width: 100vw;
+      min-height: 100vh;
+      background-color: .#e79d56;
+      /*background-image: linear-gradient(to bottom right, #ddb8a6, #d49b7e);*/
+      z-index: -5;
+      overflow: hidden;
     }
-    #input{
+    .card_cont {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: 1.5vw;
+      row-gap: 1.5vw;
+      margin: 1.5vh 2vw 1.5vh 2vw;
+      z-index: 1;
+    }
+    .card {
+      height: 45vw;
+      width: 100%;
+      background-color: red;
+      border-radius: 2vw;
+      display: block;
+      z-index: 1;
+    }
+    #card1 {
+      background-color: #922636
+    }
+    #card2 {
+      background-color: #1c3c44
+    }
+    #card3 {
+      background-color: #3b6c5b
+    }
+    #card4 {
+      background-image: linear-gradient(to top right, #333333, #404040);
+      grid-column-start: 1;
+      grid-column-end: 3;
+      overflow: hidden;
+    }
+    #card5 {
+      background-color: #102820
+    }
+    #card5_det {
+      z-index: 3;
+    }
+    #card5_illus {
+      width: 31%;
+      position: absolute;
+      display: inline-block;
+      z-index: 2;
+      border: 2px solid white;
+    }
+    #all_cont {
+      border: 2px solid #404040;
+      margin: 34vw 1vw 0 1vw;
+      padding: 1vw 1vw 1vw 1vw;
+      border-radius: 1vw;
+      box-shadow: 0vw 0vw 1vw 0.5vw #333333;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      background: linear-gradient(to right, #918682, #898584);
+    }
+    #playback_cont {
+      width: 100%;
+      height: 100%;
+      border: 0px solid black;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-column-start: 3;
+      grid-column-end: 4;
+      margin: 0;
+    }
+    .playback_controls {
+      width: 100%;
+      height: 100%;
+      justify-self: center;
+      display: grid;
+      border-radius: 1vw;
+      background-color: #404040;
+      box-shadow: -0.3vw -0.3vw 0vw 0 #333333 inset
+    }
+    .con_svg {
       width: 90%;
-      font-size: 40px;
+      height: 90%;
+      border: 0px solid black;
+      margin: auto
     }
-    button{
-      border-radius: 10px;
-      border: 3px solid black;
-      height: 5vh;
-      width: 90%;
-      font-size: 3vw;
-      background-color: transparent;
+    .card_det {
+      display: inline-block;
+      padding: 0 0 0 1.5%;
+      margin-top: 36vw;
+      margin-left: 1vw;
+      border: 0px solid black;
     }
-    #slider{
-      width: 90%;
+    .card_head {
+      display: inline-block;
+      color: white;
+      font-family: nexhev;
+      font-size: 4.5vw;
+      line-height: 4vw;
+      margin: 0 0 0.5vw 0;
     }
-    .slider{
-      text-align: center;
+    .card_para {
+      display: inline-block;
+      color: white;
+      font-family: montmed;
+      font-size: 2vw;
+      line-height: 2vw;
+      margin: 0;
     }
-    #rangeValue{
-      font-size: 3vw;
+    #blu {
+      width: 300px;
+      height: 400px;
+      margin: 30vh 0 0 30vw;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      z-index: 0;
     }
   </style>
-  <body onload = "brython()">
-    <h6>An Experimental website</h6>
-    <div id="holder">
-      <button onclick="gih()">Github</button>
-      <br>
-      <br>
-      <audio id="aud">
-        <source src="pre_music.mp3" type="audio/mpeg">
-      </audio>
-      <audio id="aud2">
-        <source src="win.mp3" type="audio/mpeg">
-      </audio>
+  <body>
+    <div id="parent">
+      
+      <div class="card_cont">
+        
+        <div class="card" id="card1">
+          <div class="card_det">
+            <div class="card_head">Youtube</div><br>
+            <div class="card_para">My Youtube Channel</div>
+          </div>
+        </div>
+        
+        <div class="card" id="card2">
+          <div class="card_det">
+            <div class="card_head">Exclusive</div><br>
+            <div class="card_para">My made game</div>
+          </div>
+        </div>
+        
+        <div class="card" id="card3">
+          <div class="card_det">
+            <div class="card_head">My Apps</div><br>
+            <div class="card_para">My made softwares</div>
+          </div>
+        </div>
+        
+        <div class="card" id="card4">
+          <div id="all_cont">
+            <div class="card_det" style="margin: 0">
+              <div class="card_head" style="color: #262626;">Music</div><br>
+              <div class="card_para" style="color: #262626">Play for no mean</div>
+            </div>
+            <div id="playback_cont">
+              <div class="playback_controls" id="con">
+                <svg class="con_svg" width="16" height="16" fill="#918682" class="bi bi-play" viewBox="0 0 16 16">
+                  <path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card" id="card5">
+          <div class="card_det">
+            <div class="card_head">Save trees</div><br>
+            <div class="card_para">Just SAVE TREES</div>
+          </div>
+        </div>
+        
+      </div>
+      
     </div>
-    <div class="slider">
-      <input id="slider" type="range" min="0" max="10" value="5" oninput="aud()">
-      <p id="rangeValue">Half</p>
-    </div>
-    <div class="holder2">
-      <br>
-      <button onclick="vin()">Play/Pause</button>
-      <button onclick="app()">Channel</button>
-      <br>
-      <br>
-      <br>
-      <input type="text" id="input"></input>
-      <br>
-      <br>
-      <button onclick="wap()">Whatsapp</button>
-      <button onclick="goo()">Google</button>
-      <button onclick="you()">Youtube</button>
-      <button onclick="pla()">Play</button>
-      <button onclick="map()">Map</button>
-      <button onclick="download()">App download</button>
-      <hr>
-      <button onclick="web()">Website</button>
-      <br>
-      <br>
-      <hr>
-      <br>
-      <p>Most living animal species are in Bilateria, a clade whose members have a bilaterally symmetric body plan. The Bilateria include the protostomes, containing animals such as nematodes, arthropods, flatworms, annelids and molluscs, and the deuterostomes, containing the echinoderms and the chordates, the latter including the vertebrates. Life forms interpreted as early animals were present in the Ediacaran biota of the late Precambrian. Many modern animal phyla became clearly established in the fossil record as marine species during the Cambrian explosion, which began around 539 million years ago. 6,331 groups of genes common to all living animals have been identified; these may have arisen from a single common ancestor that lived 650 million years ago.
-
-Historically, Aristotle divided animals into those with blood and those without. Carl Linnaeus created the first hierarchical biological classification for animals in 1758 with his Systema Naturae, which Jean-Baptiste Lamarck expanded into 14 phyla by 1809. In 1874, Ernst Haeckel divided the animal kingdom into the multicellular Metazoa (now synonymous for Animalia) and the Protozoa, single-celled organisms no longer considered animals. In modern times, the biological classification of animals relies on advanced techniques, such as molecular phylogenetics, which are effective at demonstrating the evolutionary relationships between taxa.
-
-Humans make use of many animal species, such as for food (including meat, milk, and eggs), for materials (such as leather and wool), as pets, and as working animals including for transport. Dogs have been used in hunting, as have birds of prey, while many terrestrial and aquatic animals were hunted for sports. Nonhuman animals have appeared in art from the earliest times and are featured in mythology and religion.</p>
-      <button onclick="srl()">Scroll Top</button>
-      <button onclick="test()">Zoom</button>
-     </div>
-    
-    <script type = "text/python">
-      from browser import document
-      document <= "Hello World!, me getting ready"
-    </script>
-    
-      <script>
-      import simpleGit from 'simple-git
-      function gih() {
-        errorDec = document.getElementById("error");
-        const git = simpleGit;
-        git.init();
-        git.addRemote("gpu", "https://github.com/Adityarewani/gpu");
-        git.add("win.mp3");
-        git.commit();
-      };
-      const input = document.getElementById('input')
-      function vib() {
-        audio = document.getElementById("aud");
-        window.navigator.vibrate([50]);
-        audio.volume = 1.0;
-      };
-      function vin() {
-        newAudio = document.getElementById("aud");
-        if (newAudio.paused) {
-          newAudio.play();
-        }
-        else {
-          newAudio.pause();
-        };
-      };
-      function aud() {
-        slider = document.getElementById("slider");
-        audio = document.getElementById("aud");
-        val = document.getElementById("rangeValue");
-        if (slider.value == "10") {
-          audio.volume = 1.0;
-        };
-        if (slider.value == "9") {
-          audio.volume = 0.9;
-        };
-        if (slider.value == "8") {
-          audio.volume = 0.8;
-        };
-        if (slider.value == "7") {
-          audio.volume = 0.7;
-        };
-        if (slider.value == "6") {
-          audio.volume = 0.6;
-        };
-        if (slider.value == "5") {
-          audio.volume = 0.5;
-        };
-        if (slider.value == "4") {
-          audio.volume = 0.4;
-        };
-        if (slider.value == "3") {
-          audio.volume = 0.3;
-        };
-        if (slider.value == "2") {
-          audio.volume = 0.2;
-        };
-        if (slider.value == "1") {
-          audio.volume = 0.1;
-        };
-        if (slider.value == "0") {
-          audio.volume = 0;
-        };
-        val.innerHTML = audio.volume;
-        if (slider.value == "0") {
-          val.innerHTML = "Mute"
-        };
-        if (slider.value == "10") {
-          val.innerHTML = "Full"
-        };
-        if (slider.value == "5") {
-          val.innerHTML = "Half"
-        };
-        window.navigator.vibrate([15]);
-      };
-      function app() {
-        window.location = "https://youtube.com/@ZIP10Gamer?si=Ba9N1GM3_75rS0zd"
-      };
-      function wap() {
-        const aud = document.getElementById('aud2')
-        if (input.value == "") {
-          aud.play();
-          alert("Please provide some text")
-          aud.pause();
-          aud.currentTime = 0
-        };
-        if (input.value != "") {
-        window.open('whatsapp://send?text=' + input.value)
-        };
-      };
-      function goo() {
-        const aud = document.getElementById('aud2')
-        if (input.value == "") {
-          aud.play();
-          alert("Please provide some text")
-          aud.pause();
-          aud.currentTime = 0
-        };
-        if (input.value != "") {
-        window.open("https://www.google.com/search?q=" + input.value + "&oq=&aqs=chrome", "_blank")
-        };
-      };
-      function you() {
-        const aud = document.getElementById('aud2')
-        if (input.value == "") {
-          aud.play();
-          alert("Please provide some text")
-          aud.pause();
-          aud.currentTime = 0
-        };
-        if (input.value != "") {
-        window.open("https://m.youtube.com/results?sp=mAEA&search_query=" + input.value)
-        }; 
-      };
-      function pla() {
-        const aud = document.getElementById('aud2')
-        games = input.value.toLowerCase()
-        app = ""
-        if (games == "free fire") {
-          app = "com.dts.freefiremax"
-          call()
-        }
-        else if (games == "youtube") {
-          app = "com.google.android.youtube"
-          call()
-        }
-        else {
-          aud.play()
-          alert("Please enter a valid app name")
-          aud.pause()
-          aud.currentTime = 0
-        };
-        function call() {
-          window.open("https://play.google.com/store/apps/details?id=" + app)
-        }
-      };
-      function map() {
-        const aud = document.getElementById('aud2')
-        navigator.geolocation
-        if (navigator.geolocation) {
-          nav = navigator.geolocation.getCurrentPosition(show, err)
-        } else {
-          console.log("error")
-        }
-        function show(position) {
-          let lat = position.coords.latitude
-          let lon = position.coords.longitude
-          window.open("https://www.google.com/maps/@" + lat + "," + lon + ",16z/data=")
-        };
-        function err() {
-          aud.play()
-          alert("Something went wrong!")
-          aud.pause()
-          aud.currentTime = 0
-        };
-      };
-      function web() {
-        window.location = "https://adityarewani.github.io/cpu/"
-      }
-      function download() {
-        window.location = "https://adityarewani.github.io/gpu/app_lifi.apk"
-      }
-      function srl() {
-        window.scrollTo({ top: 0 , behavior: 'smooth' });
-      }
-      function test() {
-        let zoom = ((window.outerWidth - 10) 
-                / window.innerWidth) * 100; 
-        console.log(zoom);
-      }
-    </script>
   </body>
- </html
+  <script>
+  
+  </script>
+</html>
