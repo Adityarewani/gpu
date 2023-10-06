@@ -111,11 +111,12 @@
       margin: auto
     }
     .card_det {
-      display: inline-block;
+      display: grid;
+      grid-template-rows: 1fr;
       padding: 0 0 0 1.5%;
       margin-top: 34vw;
       margin-left: 1vw;
-      border: 0px solid black;
+      border: 1px solid black;
     }
     .card_head {
       display: inline;
@@ -126,6 +127,8 @@
     }
     .card_para {
       display: inline;
+      grid-row-start: 2;
+      grid-row-end: 3;
       color: white;
       font-family: montmed;
       font-size: 2vw;
