@@ -1,1 +1,205 @@
-
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatable" content="IE-edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a3a45">
+    <script type="text/javascript" src="jquery-3.7.1.js"></script>
+    <title>Hello Guys</title>
+  </head>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    @font-face {
+      font-family: montmed;
+      src: url(fonts/Montserrat-Medium.ttf);
+    }
+    @font-face {
+      font-family: nexhev;
+      src: url(fonts/Nexa-Heavy.ttf);
+    }
+    #parent {
+      width: 100vw;
+      min-height: 100vh;
+      background-color: .#e79d56;
+      /*background-image: linear-gradient(to bottom right, #ddb8a6, #d49b7e);*/
+      z-index: -5;
+      overflow: hidden;
+    }
+    .card_cont {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: 1.5vw;
+      row-gap: 1.5vw;
+      margin: 1.5vh 2vw 1.5vh 2vw;
+      z-index: 1;
+    }
+    .card {
+      height: 45vw;
+      width: 100%;
+      background-color: red;
+      border-radius: 2vw;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+    #card1 {
+      background-color: #922636
+    }
+    #card2 {
+      background-color: #1c3c44
+    }
+    #card3 {
+      background-color: #3b6c5b
+    }
+    #card4 {
+      background-image: linear-gradient(to top right, #333333, #404040);
+      grid-column-start: 1;
+      grid-column-end: 3;
+      overflow: hidden;
+    }
+    #card5 {
+      background-color: #102820
+    }
+    #card5_det {
+      z-index: 3;
+    }
+    #card5_illus {
+      width: 31%;
+      position: absolute;
+      display: inline-block;
+      z-index: 2;
+      border: 2px solid white;
+    }
+    #all_cont {
+      border: 2px solid #404040;
+      margin: 34vw 1vw 0 1vw;
+      padding: 1vw 1vw 1vw 1vw;
+      border-radius: 1vw;
+      box-shadow: 0vw 0vw 1vw 0.5vw #333333;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      background: linear-gradient(to right, #918682, #898584);
+    }
+    #playback_cont {
+      width: 100%;
+      height: 100%;
+      border: 0px solid black;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-column-start: 3;
+      grid-column-end: 4;
+      margin: 0;
+    }
+    .playback_controls {
+      width: 100%;
+      height: 100%;
+      justify-self: center;
+      display: grid;
+      border-radius: 1vw;
+      background-color: #404040;
+      box-shadow: -0.3vw -0.3vw 0vw 0 #333333 inset
+    }
+    .con_svg {
+      width: 90%;
+      height: 90%;
+      border: 0px solid black;
+      margin: auto
+    }
+    .card_det {
+      padding: 0 0 0 1.5%;
+      margin-left: 1vw;
+      border: 0px solid black;
+      position: absolute;
+      bottom: 1vw;
+    }
+    .card_head {
+      display: inline;
+      color: white;
+      font-family: nexhev;
+      line-height: 4vw;
+      font-size: 4.5vw;
+      border: 0px solid black;
+    }
+    .card_para {
+      display: inline;
+      color: white;
+      font-family: montmed;
+      line-height: 3vw;
+      font-size: 2vw;
+      border: 0px solid black;
+    }
+    #blu {
+      width: 300px;
+      height: 400px;
+      margin: 30vh 0 0 30vw;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      z-index: 0;
+    }
+  </style>
+  <body>
+    <div id="parent">
+      
+      <div class="card_cont">
+        
+        <div class="card" id="card1">
+          <div class="card_det">
+            <div class="card_head">Youtube</div><br>
+            <div class="card_para">My Youtube Channel</div>
+          </div>
+        </div>
+        
+        <div class="card" id="card2">
+          <div class="card_det">
+            <div class="card_head">Exclusive</div><br>
+            <div class="card_para">My made game</div>
+          </div>
+        </div>
+        
+        <div class="card" id="card3">
+          <div class="card_det">
+            <div class="card_head">My Apps</div><br>
+            <div class="card_para">My made softwares</div>
+          </div>
+        </div>
+        
+        <div class="card" id="card4">
+          <div id="all_cont">
+            <div class="card_det" style="margin: 0">
+              <div class="card_head" style="color: #262626; line-height: 4vw; ">Music</div><br>
+              <div class="card_para" style="color: #262626">Play for no mean</div>
+            </div>
+            <div id="playback_cont">
+              <div class="playback_controls" id="con">
+                <svg class="con_svg" width="16" height="16" fill="#918682" class="bi bi-play" viewBox="0 0 16 16">
+                  <path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card" id="card5">
+          <div class="card_det">
+            <div class="card_head">Save trees</div><br>
+            <div class="card_para">Just SAVE TREES</div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </body>
+  <script>
+  
+  </script>
+</html>
