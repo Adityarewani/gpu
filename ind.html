@@ -34,15 +34,6 @@
       /*background-image: linear-gradient(to bottom, #ddb8a6, #d49b7e);*/
       overflow: hidden;
     }
-    #parent:before {
-      content: "";
-      background: url('Film_Grain_15.png') repeat center;
-      mix-blend-mode: darken;
-      display: block;
-      position: absolute;
-      width: 100vw;
-      height: 100vh;
-    }
     .card_cont {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -52,6 +43,7 @@
       padding: 1vw 1vw 1vw 1vw;
       z-index: 1;
       border-radius: 2vw;
+      position: relative;
     }
     .card {
       height: 45vw;
@@ -156,15 +148,19 @@
     }
     .top_bar_cont {
       height: 8vw;
-      position: -webkit-sticky;
+      position: relative;
       background-color: #3e4459;
-      display: relative;
+      display: block;
       top: 0;
+      z-index: 5
     }
     #logo {
-      height: 95%;
+      height: 85%;
       margin-left: 1%;
       border: 0px solid black;
+      display: block;
+      position: relative;
+      top: 5%
     }
     h1 {
       display: inline-block;
