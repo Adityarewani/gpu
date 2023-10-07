@@ -97,8 +97,9 @@
     #all_cont {
       width: 91%;
       min-height: 10%;
+      display: block;
       border: 2px solid #404040;
-      padding: 1vw 1vw 1vw 1vw;
+      padding: 0 1vw 0 2%;
       border-radius: 1vw;
       box-shadow: 0vw 0vw 1vw 0.5vw #333333;
       position: absolute;
@@ -109,29 +110,28 @@
       background: linear-gradient(to right, #918682, #898584);
     }
     #playback_cont {
-      width: 100%;
-      height: 100%;
+      width: 50%;
+      height: 80%;
+      display: block;
       border: 0px solid black;
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-column-start: 3;
-      grid-column-end: 4;
-      margin: 0;
+      position: absolute;
+      top: 10%;
+      right: 1.5%;
     }
     .playback_controls {
-      width: 100%;
       height: 100%;
-      justify-self: center;
-      display: grid;
       border-radius: 1vw;
+      border: 0px solid black;
       background-color: #404040;
-      box-shadow: -0.3vw -0.3vw 0vw 0 #333333 inset
+      /*box-shadow: -0.3vw -0.3vw 0vw 0 #333333 inset*/
     }
     .con_svg {
-      width: 90%;
-      height: 90%;
+      width: 100%;
+      height: 100%;
       border: 0px solid black;
-      margin: auto
+      position: relative;
+      justify-self: center;
+      margin: auto;
     }
     .card_det {
       padding: 0 0 0 1.5%;
@@ -144,16 +144,14 @@
       display: inline;
       color: white;
       font-family: nexhev;
-      line-height: 4vw;
-      font-size: 200%;
+      font-size: 5vw;
       border: 0px solid black;
     }
     .card_para {
       display: inline;
       color: white;
       font-family: montmed;
-      line-height: 3vw;
-      font-size: 100%;
+      font-size: 2vw;
       border: 0px solid black;
     }
     .top_bar_cont {
@@ -224,8 +222,7 @@
         
         <div class="card" id="card4">
           <div id="all_cont">
-            <div class="card_head" style="color: #262626; line-height: 4vw; ">Music</div><br>
-            <div class="card_para" style="color: #262626">Play for no mean</div>
+            <div class="card_head" style="color: #262626;">Magic</div>
             <div id="playback_cont">
               <div class="playback_controls" id="con">
                 <svg class="con_svg" width="16" height="16" fill="#918682" class="bi bi-play" viewBox="0 0 16 16">
