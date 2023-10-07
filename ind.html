@@ -23,21 +23,35 @@
       font-family: nexhev;
       src: url(fonts/Nexa-Heavy.ttf);
     }
+    @font-face {
+      font-family: par;
+      src: url(fonts/manrope.regular.otf);
+    }
     #parent {
       width: 100vw;
       min-height: 100vh;
-      background-color: .#e79d56;
-      /*background-image: linear-gradient(to bottom right, #ddb8a6, #d49b7e);*/
-      z-index: -5;
+      background-color: #f2efeb;
+      /*background-image: linear-gradient(to bottom, #ddb8a6, #d49b7e);*/
       overflow: hidden;
+    }
+    #parent:before {
+      content: "";
+      background: url('Film_Grain_15.png') repeat center;
+      mix-blend-mode: darken;
+      display: block;
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
     }
     .card_cont {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       column-gap: 1.5vw;
       row-gap: 1.5vw;
-      margin: 1.5vh 2vw 1.5vh 2vw;
+      margin: 0.5vw 0.5vw 0.5vw 0.5vw;
+      padding: 1vw 1vw 1vw 1vw;
       z-index: 1;
+      border-radius: 2vw;
     }
     .card {
       height: 45vw;
@@ -49,22 +63,26 @@
       z-index: 1;
     }
     #card1 {
-      background-color: #922636
+      background-color: #922636;
+      box-shadow: 0 0 0.5vw 0.1vw #a65858;
     }
     #card2 {
-      background-color: #1c3c44
+      background-color: #1c3c44;
+      box-shadow: 0 0 0.5vw 0.1vw #4d868c;
     }
     #card3 {
-      background-color: #3b6c5b
+      background-color: #3b6c5b;
+      box-shadow: 0 0 0.5vw 0.1vw #4c6444;
     }
     #card4 {
       background-image: linear-gradient(to top right, #333333, #404040);
       grid-column-start: 1;
       grid-column-end: 3;
-      overflow: hidden;
+      box-shadow: 0 0 0.5vw 0.1vw #594a54;
     }
     #card5 {
-      background-color: #102820
+      background-color: #102820;
+      box-shadow: 0 0 0.5vw 0.1vw #102820;
     }
     #card5_det {
       z-index: 3;
@@ -77,13 +95,17 @@
       border: 2px solid white;
     }
     #all_cont {
+      width: 91%;
+      min-height: 10%;
       border: 2px solid #404040;
-      margin: 34vw 1vw 0 1vw;
       padding: 1vw 1vw 1vw 1vw;
       border-radius: 1vw;
       box-shadow: 0vw 0vw 1vw 0.5vw #333333;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      position: absolute;
+      margin: auto;
+      left: 2%;
+      right: 2%;
+      bottom: 3%;
       background: linear-gradient(to right, #918682, #898584);
     }
     #playback_cont {
@@ -134,6 +156,24 @@
       font-size: 100%;
       border: 0px solid black;
     }
+    .top_bar_cont {
+      height: 8vw;
+      position: -webkit-sticky;
+      background-color: #3e4459;
+      display: relative;
+      top: 0;
+    }
+    #logo {
+      height: 95%;
+      margin-left: 1%;
+      border: 0px solid black;
+    }
+    h1 {
+      display: inline-block;
+      font-size: 5vw;
+      font-family: nexhev;
+      margin: 1vw 0 0 1.5vw;
+    }
     #blu {
       width: 300px;
       height: 400px;
@@ -148,6 +188,16 @@
   </style>
   <body>
     <div id="parent">
+      
+      <div class="top_bar_cont">
+        <img id="logo" src="logo.png" alt="logo">
+      </div>
+      
+      <h1>Welcome from adityarewani!</h1>
+      <p style="margin: 0 1.5vw 2vw 1.5vw; font-family: par;
+      font-size: 2vw; display: inline-block; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas fringilla leo, eu dignissim mi aliquet quis. Fusce venenatis vulputate dui, eu maximus lorem auctor eu. Nulla sed quam leo. Proin accumsan magna in risus malesuada, non imperdiet odio ultrices. Phasellus sit amet feugiat metus. Proin tincidunt leo ut lectus convallis, pretium finibus tortor tincidunt. Integer congue euismod elit nec eleifend. Morbi vehicula mauris sed felis malesuada, ut posuere risus molestie. Ut at posuere augue. Duis et ante vel leo feugiat maximus ac at diam. Quisque dignissim tortor pellentesque lorem gravida suscipit. Aliquam erat volutpat. Etiam erat magna, fermentum eget tincidunt at, malesuada sit amet nulla. Sed eget lectus mauris.<br>
+      
+      Proin fermentum felis vel augue semper, vel iaculis tortor tincidunt. Donec ac tristique lectus, a tincidunt elit. Aenean nec eleifend augue. Praesent nec viverra dui, ac luctus dolor. Aliquam elementum pharetra neque vel iaculis. Morbi nec nunc in nunc volutpat bibendum ut ut magna. Donec ac suscipit libero. Etiam eget massa faucibus, mattis sem at, consequat arcu. Sed tempus odio risus, eu dapibus enim convallis id. Integer accumsan ex et nunc pharetra eleifend. Fusce imperdiet lorem vitae sapien egestas posuere. Vivamus viverra gravida nibh, id tempor tortor euismod a. Vestibulum.</p>
       
       <div class="card_cont">
         
@@ -174,10 +224,8 @@
         
         <div class="card" id="card4">
           <div id="all_cont">
-            <div class="card_det" style="margin: 0">
-              <div class="card_head" style="color: #262626; line-height: 4vw; ">Music</div><br>
-              <div class="card_para" style="color: #262626">Play for no mean</div>
-            </div>
+            <div class="card_head" style="color: #262626; line-height: 4vw; ">Music</div><br>
+            <div class="card_para" style="color: #262626">Play for no mean</div>
             <div id="playback_cont">
               <div class="playback_controls" id="con">
                 <svg class="con_svg" width="16" height="16" fill="#918682" class="bi bi-play" viewBox="0 0 16 16">
