@@ -15,9 +15,16 @@
       margin: 0;
       padding: 0;
     }
+    :root {
+      --col: red;
+    }
     @font-face {
       font-family: montmed;
       src: url(fonts/Montserrat-Medium.ttf);
+    }
+    @font-face {
+      font-family: montbla;
+      src: url(fonts/Montserrat-Black.ttf);
     }
     @font-face {
       font-family: nexhev;
@@ -27,7 +34,13 @@
       font-family: par;
       src: url(fonts/manrope.regular.otf);
     }
+    @font-face {
+      font-family: gotham;
+      src: url(fonts/GothamPro-Bold.ttf);
+    }
     #parent {
+      display: block;
+      position: relative;
       width: 100vw;
       min-height: 100vh;
       background-color: #f2efeb;
@@ -37,6 +50,7 @@
       animation-duration: 4s;
       animation-direction: alternate-reverse;
       animation-iteration-count: infinite;
+      z-index: 0;
     }
     @keyframes flow {
       0% {
@@ -187,11 +201,32 @@
     #welcome_cont {
       /*display: grid;
       grid-template-columns: 70% 30%;*/
+      z-index: 9999
     }
     #welcome_emoji {
       margin: 2vw 2.5vw 2vw 2.5vw;
       width: 22.5%;
       float: right;
+    }
+    #smile_tex {
+      display: inline-block;
+      position: absolute;
+      margin: 0;
+      /* min top-17vw
+      max top- */
+      font-family: montbla;
+      font-size: 6vw;
+      z-index: -1;
+      color: #f2efeb;
+      border: 0px solid black;
+      animation-name: ;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+    }
+    @keyframes color {
+      0% {color: #f2efeb}
+      50% {color: var(--col)}
+      100% {color: #f2efeb}
     }
     #blu {
       width: 300px;
@@ -212,13 +247,14 @@
         <img id="logo" src="logo.png" alt="logo">
       </div>
       
+      <h4 id="smile_tex">Smile</h4>
       <h1>Welcome from adityarewani!</h1>
-      <div id="welcome_cont">
-        <svg id="welcome_emoji" fill="currentColor" class="bi bi-emoji-smile" viewBox="0 0 16 16">
+      <div id="welcome_cont" onclick="smile()">
+        <svg id="welcome_emoji" onclick="smile()" fill="currentColor" class="bi bi-emoji-smile" viewBox="0 0 16 16">
           <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
           <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z" />
         </svg>
-        <p style="margin: 0 1.5vw 2vw 1.5vw; font-family: par;font-size: 2vw; border: 0px solid black; text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas fringilla leo, eu dignissim mi aliquet quis. Fusce venenatis vulputate dui, eu maximus lorem auctor eu. Nulla sed quam leo. Proin accumsan magna in risus malesuada, non imperdiet odio ultrices. Phasellus sit amet feugiat metus. Proin tincidunt leo ut lectus convallis, pretium finibus tortor tincidunt. Integer congue euismod elit nec eleifend. Morbi vehicula mauris sed felis malesuada, ut posuere risus molestie. Ut at posuere augue. Duis et ante vel leo feugiat maximus ac at diam. Quisque dignissim tortor pellentesque lorem gravida suscipit. Aliquam erat volutpat. Etiam erat magna, fermentum eget tincidunt at, malesuada sit amet nulla. Sed eget lectus mauris.<br>
+        <p style="margin: 0 1.5vw 2vw 1.5vw; font-family: par;font-size: 2vw; border: 0px solid black">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas fringilla leo, eu dignissim mi aliquet quis. Fusce venenatis vulputate dui, eu maximus lorem auctor eu. Nulla sed quam leo. Proin accumsan magna in risus malesuada, non imperdiet odio ultrices. Phasellus sit amet feugiat metus. Proin tincidunt leo ut lectus convallis, pretium finibus tortor tincidunt. Integer congue euismod elit nec eleifend. Morbi vehicula mauris sed felis malesuada, ut posuere risus molestie. Ut at posuere augue. Duis et ante vel leo feugiat maximus ac at diam. Quisque dignissim tortor pellentesque lorem gravida suscipit. Aliquam erat volutpat. Etiam erat magna, fermentum eget tincidunt at, malesuada sit amet nulla. Sed eget lectus mauris.<br>
       
         Proin fermentum felis vel augue semper, vel iaculis tortor tincidunt. Donec ac tristique lectus, a tincidunt elit. Aenean nec eleifend augue. Praesent nec viverra dui, ac luctus dolor. Aliquam elementum pharetra neque vel iaculis. Morbi nec nunc in nunc volutpat bibendum ut ut magna. Donec ac suscipit libero. Etiam eget massa faucibus, mattis sem at, consequat arcu. Sed tempus odio risus, eu dapibus enim convallis id. Integer accumsan ex et nunc pharetra eleifend. Fusce imperdiet lorem vitae sapien egestas posuere. Vivamus viverra gravida nibh, id tempor tortor euismod a. Vestibulum.</p>
       </div>
@@ -290,5 +326,38 @@
         $('#play').css("display", "block");
       }
     });
+    
+    var pos = 0;
+    function smile () {
+      
+      var r = document.querySelector(':root');
+      const col_lis = ['#4d868c','#be1e29','#d8b344','#f25e5e','#024873','#68828c','#a60303','#f2b705','#8c862e','#bf4900','#49a68b','#402b18','#a9bebe','#0378a6','#04d98b','#252525','#590e2a','#f272b8','#1f4224'];
+      
+      console.log("found");
+      const min_top = $('h1').height() + parseInt(($('h1').css("marginTop")).replace("px","")) + $('.top_bar_cont').height() + 80;
+      const max_top = min_top + $('#welcome_cont').height() - $('#smile_tex').height() - 160;
+      const min_left = 30;
+      const max_left = screen.width - $('#smile_tex').width() -50;
+      
+      const top = Math.floor(Math.random() * (max_top - min_top) ) + min_top;
+      const left = Math.floor(Math.random() * (max_left - min_left) ) + min_left;
+      const rotate = Math.floor(Math.random() * (40 - (-40)) ) + (-40);
+      const col = col_lis[Math.floor(Math.random() * (col_lis.length - 0 ) + 0)]
+      // Math.floor(Math.random() * (max - min) ) + min; || max limit will not be chosen
+      $('#smile_tex').css("top", top + "px");
+      $('#smile_tex').css("left", left + "px");
+      $('#smile_tex').css("transform", "rotate(" + rotate +"deg)");
+      
+      if (pos == 0) {
+        $('#smile_tex').css("animation-name", "color");
+        r.style.setProperty('--col', col);
+        pos = 1;
+        window.setTimeout(function() {
+          $('#smile_tex').css("animation-name", "null");
+          pos = 0;
+        }, 1000)
+      }
+      
+    }
   </script>
 </html>
