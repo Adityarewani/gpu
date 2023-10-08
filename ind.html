@@ -31,8 +31,20 @@
       width: 100vw;
       min-height: 100vh;
       background-color: #f2efeb;
-      /*background-image: linear-gradient(to bottom, #ddb8a6, #d49b7e);*/
+      background-size: 400% 400%;
       overflow: hidden;
+      animation-name: flw;
+      animation-duration: 4s;
+      animation-direction: alternate-reverse;
+      animation-iteration-count: infinite;
+    }
+    @keyframes flow {
+      0% {
+        background-position: 0% 0%;
+      }
+      100% {
+        background-position: 0% 100%;
+      }
     }
     .card_cont {
       display: grid;
@@ -124,6 +136,10 @@
       position: relative;
       justify-self: center;
       margin: auto;
+      display: block
+    }
+    #paus {
+      display: none;
     }
     .card_det {
       padding: 0 0 0 1.5%;
@@ -168,6 +184,15 @@
       font-family: nexhev;
       margin: 1vw 0 0 1.5vw;
     }
+    #welcome_cont {
+      /*display: grid;
+      grid-template-columns: 70% 30%;*/
+    }
+    #welcome_emoji {
+      margin: 2vw 2.5vw 2vw 2.5vw;
+      width: 22.5%;
+      float: right;
+    }
     #blu {
       width: 300px;
       height: 400px;
@@ -188,10 +213,15 @@
       </div>
       
       <h1>Welcome from adityarewani!</h1>
-      <p style="margin: 0 1.5vw 2vw 1.5vw; font-family: par;
-      font-size: 2vw; display: inline-block; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas fringilla leo, eu dignissim mi aliquet quis. Fusce venenatis vulputate dui, eu maximus lorem auctor eu. Nulla sed quam leo. Proin accumsan magna in risus malesuada, non imperdiet odio ultrices. Phasellus sit amet feugiat metus. Proin tincidunt leo ut lectus convallis, pretium finibus tortor tincidunt. Integer congue euismod elit nec eleifend. Morbi vehicula mauris sed felis malesuada, ut posuere risus molestie. Ut at posuere augue. Duis et ante vel leo feugiat maximus ac at diam. Quisque dignissim tortor pellentesque lorem gravida suscipit. Aliquam erat volutpat. Etiam erat magna, fermentum eget tincidunt at, malesuada sit amet nulla. Sed eget lectus mauris.<br>
+      <div id="welcome_cont">
+        <svg id="welcome_emoji" fill="currentColor" class="bi bi-emoji-smile" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+          <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z" />
+        </svg>
+        <p style="margin: 0 1.5vw 2vw 1.5vw; font-family: par;font-size: 2vw; border: 0px solid black; text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas fringilla leo, eu dignissim mi aliquet quis. Fusce venenatis vulputate dui, eu maximus lorem auctor eu. Nulla sed quam leo. Proin accumsan magna in risus malesuada, non imperdiet odio ultrices. Phasellus sit amet feugiat metus. Proin tincidunt leo ut lectus convallis, pretium finibus tortor tincidunt. Integer congue euismod elit nec eleifend. Morbi vehicula mauris sed felis malesuada, ut posuere risus molestie. Ut at posuere augue. Duis et ante vel leo feugiat maximus ac at diam. Quisque dignissim tortor pellentesque lorem gravida suscipit. Aliquam erat volutpat. Etiam erat magna, fermentum eget tincidunt at, malesuada sit amet nulla. Sed eget lectus mauris.<br>
       
-      Proin fermentum felis vel augue semper, vel iaculis tortor tincidunt. Donec ac tristique lectus, a tincidunt elit. Aenean nec eleifend augue. Praesent nec viverra dui, ac luctus dolor. Aliquam elementum pharetra neque vel iaculis. Morbi nec nunc in nunc volutpat bibendum ut ut magna. Donec ac suscipit libero. Etiam eget massa faucibus, mattis sem at, consequat arcu. Sed tempus odio risus, eu dapibus enim convallis id. Integer accumsan ex et nunc pharetra eleifend. Fusce imperdiet lorem vitae sapien egestas posuere. Vivamus viverra gravida nibh, id tempor tortor euismod a. Vestibulum.</p>
+        Proin fermentum felis vel augue semper, vel iaculis tortor tincidunt. Donec ac tristique lectus, a tincidunt elit. Aenean nec eleifend augue. Praesent nec viverra dui, ac luctus dolor. Aliquam elementum pharetra neque vel iaculis. Morbi nec nunc in nunc volutpat bibendum ut ut magna. Donec ac suscipit libero. Etiam eget massa faucibus, mattis sem at, consequat arcu. Sed tempus odio risus, eu dapibus enim convallis id. Integer accumsan ex et nunc pharetra eleifend. Fusce imperdiet lorem vitae sapien egestas posuere. Vivamus viverra gravida nibh, id tempor tortor euismod a. Vestibulum.</p>
+      </div>
       
       <div class="card_cont">
         
@@ -218,11 +248,14 @@
         
         <div class="card" id="card4">
           <div id="all_cont">
-            <div class="card_head" style="color: #262626;">Magic</div>
+            <div class="card_head" id="mus_head" style="color: #262626;">Magic</div>
             <div id="playback_cont">
               <div class="playback_controls" id="con">
-                <svg class="con_svg" width="16" height="16" fill="#918682" class="bi bi-play" viewBox="0 0 16 16">
+                <svg class="con_svg" id="play" width="16" height="16" fill="#918682" class="bi bi-play" viewBox="0 0 16 16">
                   <path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" />
+                </svg>
+                <svg class="con_svg" id="paus" width="16" height="16" fill="#918682" class="bi bi-pause" viewBox="0 0 16 16">
+                  <path d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z" />
                 </svg>
               </div>
             </div>
@@ -241,6 +274,21 @@
     </div>
   </body>
   <script>
-  
+    var playback_state = 0;
+    var snd = new Audio("glossy.mp3")
+    $('.playback_controls').click(function() {
+      if (playback_state == 0) {
+        playback_state = 1
+        snd.play();
+        $('#paus').css("display", "block");
+        $('#play').css("display", "none");
+      }
+      else if (playback_state == 1) {
+        playback_state = 0
+        snd.pause();
+        $('#paus').css("display", "none");
+        $('#play').css("display", "block");
+      }
+    });
   </script>
 </html>
