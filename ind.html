@@ -71,6 +71,10 @@
       border-radius: 2vw;
       position: relative;
     }
+    .blu_lay {
+      display: block;
+      position: relative;
+    }
     .card {
       height: 45vw;
       width: 100%;
@@ -79,18 +83,23 @@
       display: block;
       position: relative;
       z-index: 1;
+      border: 0.2vw solid #f2efeb;
+      background-color: #f2efeb;
+      box-shadow: 0.5vw 0.5vw 1vw 0.5vw #d9d7d3, -0.4vw -0.4vw 1vw 0.5vw white, 0.5vw 0.5vw 1vw 0.5vw #d9d7d3 inset, -0.4vw -0.4vw 1vw 0.5vw white inset;
     }
     #card1 {
-      background-color: #922636;
-      box-shadow: 0 0 0.5vw 0.1vw #a65858;
+      /*background-color: #922636;
+      background-color: #f2efeb;
+      box-shadow: 0.5vw 0.5vw 1vw 0.5vw #d9d7d3, -0.4vw -0.4vw 1vw 0.5vw white;*/
+      overflow: hidden;
     }
     #card2 {
-      background-color: #1c3c44;
-      box-shadow: 0 0 0.5vw 0.1vw #4d868c;
+      /*background-color: #1c3c44;
+      box-shadow: 0 0 0.5vw 0.1vw #4d868c;*/
     }
     #card3 {
-      background-color: #3b6c5b;
-      box-shadow: 0 0 0.5vw 0.1vw #4c6444;
+      /*background-color: #3b6c5b;
+      box-shadow: 0 0 0.5vw 0.1vw #4c6444;*/
     }
     #card4 {
       background-image: linear-gradient(to top right, #333333, #404040);
@@ -99,8 +108,8 @@
       box-shadow: 0 0 0.5vw 0.1vw #594a54;
     }
     #card5 {
-      background-color: #102820;
-      box-shadow: 0 0 0.5vw 0.1vw #102820;
+      /*background-color: #102820;
+      box-shadow: 0 0 0.5vw 0.1vw #102820;*/
     }
     #card5_det {
       z-index: 3;
@@ -155,12 +164,47 @@
     #paus {
       display: none;
     }
+    .wave {
+      height: 50%;
+      position: absolute;
+      /*box-shadow: 0.5vw 0.5vw 1vw 0.5vw #d9d7d3 inset, -0.4vw -0.4vw 1vw 0.5vw white inset;
+            filter: drop-shadow(1vw 1vw 1vw 2vw black inset);*/
+      animation-direction: alternate-reverse;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+    #wave1 {
+      bottom: -15%;
+      animation-name: waves;
+      animation-duration: 7s;
+      display: inline-block;
+      animation-delay: 1s;
+    }
+    #wave2 {
+      bottom: 5%;
+      animation-name: waves;
+      animation-duration: 6.5s;
+      animation-delay: 0.5s;
+    }
+    #wave3 {
+      bottom: 10%;
+      animation-name: waves;
+      animation-duration: 6s;
+    }
+    @keyframes waves {
+      0% {transform: translateX(-69%)}
+      100% {transform: translateX(0%)}
+    }
     .card_det {
       padding: 0 0 0 1.5%;
       margin-left: 1vw;
       border: 0px solid black;
       position: absolute;
+      float: top;
       bottom: 1vw;
+      clear: both;
+      float: top;
+      z-index: 5;
     }
     .card_head {
       display: inline;
@@ -201,7 +245,7 @@
     #welcome_cont {
       /*display: grid;
       grid-template-columns: 70% 30%;*/
-      z-index: 9999
+      z-index: 999
     }
     #welcome_emoji {
       margin: 2vw 2.5vw 2vw 2.5vw;
@@ -261,12 +305,26 @@
       
       <div class="card_cont">
         
-        <div class="card" id="card1">
-          <div class="card_det">
-            <div class="card_head">Youtube</div><br>
-            <div class="card_para">My Youtube Channel</div>
+          <div class="card" id="card1">
+          
+          <svg class="wave" id="wave3" viewBox="0 0 1440 320"><path fill="#5C667F" fill-opacity="1" d="M0,96L80,112C160,128,320,160,480,154.7C640,149,800,107,960,85.3C1120,64,1280,64,1360,64L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
+          
+          <svg class="wave" id="wave2" viewBox="0 0 1440 320"><path fill="#8a9abf" fill-opacity="1" filter="url(#f1)" d="M0,256L80,229.3C160,203,320,149,480,144C640,139,800,181,960,197.3C1120,213,1280,203,1360,197.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
+          
+          <svg class="wave" id="wave1" viewBox="0 0 1440 320">
+          <defs>
+            <filter id="f1" x="0" y="0" width="200vw" height="20000vw">
+              <feOffset result="offOut" in="SourceGraphic" dx="100%" dy="100%" />
+              <feGaussianBlur result="blurOut" in="offOut" stdDeviation="5" />
+              <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+            </filter>
+          </defs><path fill="#a6b8e5" fill-opacity="1" filter="url(#f1)" d="M0,128L80,128C160,128,320,128,480,133.3C640,139,800,149,960,154.7C1120,160,1280,160,1360,160L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
+          
+            <div class="card_det">
+              <div class="card_head">Youtube</div><br>
+              <div class="card_para">My Youtube Channel</div>
+            </div>
           </div>
-        </div>
         
         <div class="card" id="card2">
           <div class="card_det">
