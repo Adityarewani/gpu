@@ -45,7 +45,7 @@
       min-height: 100vh;
       background-color: #f2efeb;
       background-size: 400% 400%;
-      overflow: hidden;
+      /*overflow: hidden;*/
       animation-name: flw;
       animation-duration: 4s;
       animation-direction: alternate-reverse;
@@ -104,10 +104,9 @@
       overflow: hidden;
     }
     #card4 {
-      background-image: linear-gradient(to top right, #333333, #404040);
       grid-column-start: 1;
       grid-column-end: 3;
-      box-shadow: 0 0 0.5vw 0.1vw #594a54;
+      overflow: hidden;
     }
     #card5 {
       box-shadow: 0.5vw 0.5vw 1vw 0.5vw #d9d7d3, -0.4vw -0.4vw 1vw 0.5vw white;
@@ -123,49 +122,6 @@
       display: inline-block;
       z-index: 2;
       border: 2px solid white;
-    }
-    #all_cont {
-      width: 91%;
-      min-height: 10%;
-      display: block;
-      border: 2px solid #404040;
-      padding: 0 1vw 0 2%;
-      border-radius: 1vw;
-      box-shadow: 0vw 0vw 1vw 0.5vw #333333;
-      position: absolute;
-      margin: auto;
-      left: 2%;
-      right: 2%;
-      bottom: 3%;
-      background: linear-gradient(to right, #918682, #898584);
-    }
-    #playback_cont {
-      width: 50%;
-      height: 80%;
-      display: block;
-      border: 0px solid black;
-      position: absolute;
-      top: 10%;
-      right: 1.5%;
-    }
-    .playback_controls {
-      height: 100%;
-      border-radius: 1vw;
-      border: 0px solid black;
-      background-color: #404040;
-      /*box-shadow: -0.3vw -0.3vw 0vw 0 #333333 inset*/
-    }
-    .con_svg {
-      width: 100%;
-      height: 100%;
-      border: 0px solid black;
-      position: relative;
-      justify-self: center;
-      margin: auto;
-      display: block
-    }
-    #paus {
-      display: none;
     }
     .wave {
       height: 50%;
@@ -248,6 +204,90 @@
       0% {transform: translateX(15%)}
       100% {transform: translateX(135%)}
     }
+    #wave_mus_cont {
+      border: 0px solid black;
+      margin: 0 0 0 0;
+      display: block;
+      position: absolute;
+      /*top: 45%;*/
+      /*top: -30%;*/
+      top: 150%;
+      animation-duration: 93s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+    @keyframes wave_mus_cont {
+      0% {top: 150%}
+      100% {top: -30%}
+    }
+    #wave_mus1 {
+      height: 24vw;
+      top: -40vw;
+      z-index: 2;
+      animation-name: wave_mus1;
+      animation-duration: 5s;
+      position: absolute;
+    }
+    #wave_mus1_fill {
+      height: 25vw;
+      width: 100vw;
+      top: -20vw;
+      z-index: 2;
+      background-color: #ddb8a6;
+      position: absolute;
+    }
+    #wave_mus2 {
+      height: 24vw;
+      top: -20vw;
+      z-index: 3;
+      animation-name: wave_mus1;
+      animation-duration: 5s;
+      animation-delay: 5s;
+      position: absolute;
+    }
+    #wave_mus2_fill {
+      height: 25vw;
+      width: 100vw;
+      top: -3vw;
+      z-index: 2;
+      background-color: #d49b7e;
+      position: absolute;
+    }
+    #wave_mus3 {
+      height: 24vw;
+      z-index: 4;
+      animation-name: wave_mus1;
+      animation-duration: 5s;
+      animation-delay: 10s;
+      position: absolute;
+    }
+    #wave_mus3_fill {
+      height: 70vw;
+      width: 100vw;
+      top: 15vw;
+      z-index: 4;
+      background-color: #c67f43;
+      position: absolute;
+    }
+    @keyframes wave_mus1 {
+      0% {transform: translateX(-35%)}
+      100% {transform: translateX(0)}
+    }
+    #mus_timing {
+      display: block;
+      position: absolute;
+      z-index: 5;
+      border: 0.3vw solid rgba(255, 255, 255, 0.3);
+      border-radius: 1vw;
+      font-family: gotham;
+      font-size: 8vw;
+      color: rgba(255, 255, 255, 0.5);
+      margin: 0;
+      padding: 2% 2% 0 2%;
+      bottom: 2vw;
+      right: 2vw;
+      backdrop-filter: blur(1vw);
+    }
     .card_det {
       padding: 0 0 0 1.5%;
       margin-left: 1vw;
@@ -265,6 +305,7 @@
       font-family: nexhev;
       font-size: 5vw;
       border: 0px solid black;
+      text-shadow: 0.1vw 0.1vw 0vw #b6bdbb, 0.2vw 0.2vw 0vw #b6bdbb, 0.3vw 0.3vw 0vw #b6bdbb;
     }
     .card_para {
       display: inline;
@@ -272,6 +313,7 @@
       font-family: montmed;
       font-size: 2vw;
       border: 0px solid black;
+      text-shadow: 0.03vw 0.03vw 0vw #b6bdbb, 0.07vw 0.07vw 0vw #b6bdbb, 0.1vw 0.1vw 0vw #b6bdbb
     }
     .top_bar_cont {
       height: 8vw;
@@ -393,9 +435,9 @@
         
         <div class="card" id="card3">
           
-          <svg class="wave" id="wave3" viewBox="0 0 1440 320"><path fill="#A65D03" fill-opacity="1" d="M0,96L80,112C160,128,320,160,480,154.7C640,149,800,107,960,85.3C1120,64,1280,64,1360,64L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
-          <svg class="wave" id="wave2" viewBox="0 0 1440 320"><path fill="#F2B544" fill-opacity="1" filter="url(#f1)" d="M0,256L80,229.3C160,203,320,149,480,144C640,139,800,181,960,197.3C1120,213,1280,203,1360,197.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
-          <svg class="wave" id="wave1" viewBox="0 0 1440 320"><path fill="#F2C53D" fill-opacity="1" filter="url(#f1)" d="M0,128L80,128C160,128,320,128,480,133.3C640,139,800,149,960,154.7C1120,160,1280,160,1360,160L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
+            <svg class="wave" id="wave3" viewBox="0 0 1440 320"><path fill="#A65D03" fill-opacity="1" d="M0,96L80,112C160,128,320,160,480,154.7C640,149,800,107,960,85.3C1120,64,1280,64,1360,64L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
+            <svg class="wave" id="wave2" viewBox="0 0 1440 320"><path fill="#F2B544" fill-opacity="1" filter="url(#f1)" d="M0,256L80,229.3C160,203,320,149,480,144C640,139,800,181,960,197.3C1120,213,1280,203,1360,197.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
+            <svg class="wave" id="wave1" viewBox="0 0 1440 320"><path fill="#F2C53D" fill-opacity="1" filter="url(#f1)" d="M0,128L80,128C160,128,320,128,480,133.3C640,139,800,149,960,154.7C1120,160,1280,160,1360,160L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
           
           <div class="card_det">
             <div class="card_head">My Apps</div><br>
@@ -404,19 +446,18 @@
         </div>
         
         <div class="card" id="card4">
-          <div id="all_cont">
-            <div class="card_head" id="mus_head" style="color: #262626;">Magic</div>
-            <div id="playback_cont">
-              <div class="playback_controls" id="con">
-                <svg class="con_svg" id="play" width="16" height="16" fill="#918682" class="bi bi-play" viewBox="0 0 16 16">
-                  <path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" />
-                </svg>
-                <svg class="con_svg" id="paus" width="16" height="16" fill="#918682" class="bi bi-pause" viewBox="0 0 16 16">
-                  <path d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z" />
-                </svg>
-              </div>
+          
+          <h4 id="mus_timing">0:00</h4>
+            
+            <div id="wave_mus_cont">
+              <svg class="wave" id="wave_mus1" viewBox="0 0 1440 320"><path fill="#ddb8a6" fill-opacity="1" d="M0,224L120,213.3C240,203,480,181,720,176C960,171,1200,181,1320,186.7L1440,192L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path></svg>
+              <div id="wave_mus1_fill"></div>
+              <svg class="wave" id="wave_mus2" viewBox="0 0 1440 320"><path fill="#d49b7e" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,197.3C384,181,480,139,576,144C672,149,768,203,864,213.3C960,224,1056,192,1152,186.7C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+              <div id="wave_mus2_fill"></div>
+              <svg class="wave" id="wave_mus3" viewBox="0 0 1440 320"><path fill="#c67f43" fill-opacity="1" d="M0,0L26.7,32C53.3,64,107,128,160,133.3C213.3,139,267,85,320,53.3C373.3,21,427,11,480,32C533.3,53,587,107,640,138.7C693.3,171,747,181,800,154.7C853.3,128,907,64,960,48C1013.3,32,1067,64,1120,90.7C1173.3,117,1227,139,1280,138.7C1333.3,139,1387,117,1413,106.7L1440,96L1440,320L1413.3,320C1386.7,320,1333,320,1280,320C1226.7,320,1173,320,1120,320C1066.7,320,1013,320,960,320C906.7,320,853,320,800,320C746.7,320,693,320,640,320C586.7,320,533,320,480,320C426.7,320,373,320,320,320C266.7,320,213,320,160,320C106.7,320,53,320,27,320L0,320Z"></path></svg>
+              <div id="wave_mus3_fill"></div>
             </div>
-          </div>
+            
         </div>
         
         <div class="card" id="card5">
@@ -429,7 +470,7 @@
           
           <div class="card_det">
             <div class="card_head">Save trees</div><br>
-            <div class="card_para">Just SAVE TREES</div>
+            <div class="card_para">SAVE Environment</div>
           </div>
         </div>
         
@@ -440,20 +481,34 @@
   <script>
     var playback_state = 0;
     var snd = new Audio("glossy.mp3")
-    $('.playback_controls').click(function() {
+    
+    $('#card4').click(function () {
       if (playback_state == 0) {
-        playback_state = 1
+        playback_state = 1;
         snd.play();
-        $('#paus').css("display", "block");
-        $('#play').css("display", "none");
+        $('#wave_mus_cont').css("animationName", "wave_mus_cont");
       }
       else if (playback_state == 1) {
-        playback_state = 0
+        playback_state = 2;
         snd.pause();
-        $('#paus').css("display", "none");
-        $('#play').css("display", "block");
+        $('#wave_mus_cont').css("animationPlayState", "paused");
       }
-    });
+      else if (playback_state == 2) {
+        playback_state = 1;
+        snd.play();
+        $('#wave_mus_cont').css("animationPlayState", "running");
+      }
+    })
+    
+    const myInterval = setInterval(function () {
+      const pos_sec = Math.floor(snd.currentTime);
+      $('#mus_timing').text(pos_sec+"s");
+      
+      snd.addEventListener("ended", function () {
+        snd.play();
+        $('#mus_timing').text("0"+"s");
+      })
+    }, 1000);
     
     var pos = 0;
     function smile () {
