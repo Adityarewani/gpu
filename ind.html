@@ -206,19 +206,19 @@
     }
     #wave_mus_cont {
       border: 0px solid black;
-      margin: 0 0 0 0;
-      display: block;
+      margin: 0;
+      display: block; /*block*/
       position: absolute;
       /*top: 45%;*/
       /*top: -30%;*/
       top: 150%;
       animation-duration: 93s;
-      animation-iteration-count: infinite;
+      animation-iteration-count: 1;
       animation-timing-function: ease-in-out;
     }
     @keyframes wave_mus_cont {
       0% {top: 150%}
-      100% {top: -30%}
+      100% {top: -28%}
     }
     #wave_mus1 {
       height: 24vw;
@@ -287,6 +287,57 @@
       bottom: 2vw;
       right: 2vw;
       backdrop-filter: blur(1vw);
+    }
+    #guide_cont {
+      display: block;
+      position: relative;
+      height: 100%;
+      border: 0px solid black;
+    }
+    #click_guide {
+      border: 0px solid black;
+      display: block;
+      position: relative;
+      top: 50%;
+      margin: auto;
+      text-align: center;
+      font-family: montmed;
+      font-size: 1.5vw;
+    }
+    #level_guide {
+      border: 0px solid black;
+      display: block;
+      position: absolute;
+      top: 3vw;
+      left: 3vw;
+      font-family: par;
+      font-size: 1.5vw;
+    }
+    #meter_div_guide {
+      position: absolute;
+      height: 95%;
+      margin: 2% 0 0 1%;
+      width: 3%;
+      border: 0px solid black;
+    }
+    #meter_hori_1 {
+      width: 100%;
+      height: 1%;
+      background-color: #000;
+      border-radius: 200vw;
+    }
+    #meter_hori_2 {
+      width: 100%;
+      height: 1%;
+      background-color: #000;
+      border-radius: 200vw;
+    }
+    #meter_vert {
+      height: 97%;
+      width: 25%;
+      background-color: #000;
+      border: 0px solid black;
+      margin: 0 0 0 40%;
     }
     .card_det {
       padding: 0 0 0 1.5%;
@@ -447,7 +498,17 @@
         
         <div class="card" id="card4">
           
-          <h4 id="mus_timing">0:00</h4>
+          <div id="guide_cont">
+            <div id="meter_div_guide">
+              <div id="meter_hori_1"></div>
+              <div id="meter_vert"></div>
+              <div id="meter_hori_2"></div>
+            </div>
+            <h4 id="level_guide">Water level will show how close you are</h4>
+            <h4 id="click_guide">Click to Play or Pause, and to see a magic at the last<br>(at 93s)</h4>
+          </div>
+          
+          <h4 id="mus_timing">0s</h4>
             
             <div id="wave_mus_cont">
               <svg class="wave" id="wave_mus1" viewBox="0 0 1440 320"><path fill="#ddb8a6" fill-opacity="1" d="M0,224L120,213.3C240,203,480,181,720,176C960,171,1200,181,1320,186.7L1440,192L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path></svg>
@@ -480,13 +541,17 @@
   </body>
   <script>
     var playback_state = 0;
-    var snd = new Audio("glossy.mp3")
+    var snd = new Audio("glossy.mp3");
+    const wave_mus_cont = document.querySelector('#wave_mus_cont')
     
     $('#card4').click(function () {
       if (playback_state == 0) {
         playback_state = 1;
         snd.play();
+        $('#wave_mus_cont').css("top", "150%");
         $('#wave_mus_cont').css("animationName", "wave_mus_cont");
+        $('#wave_mus_cont').css("top", "-28%");
+        sessionStorage.setItem("played", "yes")
       }
       else if (playback_state == 1) {
         playback_state = 2;
@@ -504,11 +569,23 @@
       const pos_sec = Math.floor(snd.currentTime);
       $('#mus_timing').text(pos_sec+"s");
       
-      snd.addEventListener("ended", function () {
-        snd.play();
-        $('#mus_timing').text("0"+"s");
-      })
     }, 1000);
+    
+    wave_mus_cont.addEventListener("animationend", () => {
+      console.log("ended");
+      $('#wave_mus_cont').css("animationName", "none");
+      if (sessionStorage.getItem("played") == "yes") { $('#guide_cont').css("display", "none") }
+      
+    })
+    
+    snd.addEventListener("ended", function () {
+      snd.play();
+      $('#mus_timing').text("0s");
+      $('#wave_mus_cont').css("animationName", "none");
+      $('#wave_mus_cont').css("top", "150%");
+      if (sessionStorage.getItem("played") == "yes") {$('#guide_cont').css("display", "none")}
+      $('#wave_mus_cont').css("animationName", "wave_mus_cont");
+    })
     
     var pos = 0;
     function smile () {
