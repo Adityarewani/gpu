@@ -504,7 +504,7 @@
               <div id="meter_vert"></div>
               <div id="meter_hori_2"></div>
             </div>
-            <h4 id="level_guide">Water level will show how close you are</h4>
+            <h4 id="level_guide">Rising water level will depict how are we destroying while enjoying</h4>
             <h4 id="click_guide">Click to Play or Pause, and to see a magic at the last<br>(at 93s)</h4>
           </div>
           
@@ -548,7 +548,6 @@
       if (playback_state == 0) {
         playback_state = 1;
         snd.play();
-        $('#wave_mus_cont').css("top", "150%");
         $('#wave_mus_cont').css("animationName", "wave_mus_cont");
         $('#wave_mus_cont').css("top", "-28%");
         sessionStorage.setItem("played", "yes")
@@ -575,16 +574,14 @@
       console.log("ended");
       $('#wave_mus_cont').css("animationName", "none");
       if (sessionStorage.getItem("played") == "yes") { $('#guide_cont').css("display", "none") }
-      
     })
     
     snd.addEventListener("ended", function () {
       snd.play();
       $('#mus_timing').text("0s");
-      $('#wave_mus_cont').css("animationName", "none");
-      $('#wave_mus_cont').css("top", "150%");
       if (sessionStorage.getItem("played") == "yes") {$('#guide_cont').css("display", "none")}
       $('#wave_mus_cont').css("animationName", "wave_mus_cont");
+      console.log("music started");
     })
     
     var pos = 0;
