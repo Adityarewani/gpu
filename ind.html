@@ -288,11 +288,43 @@
       right: 2vw;
       backdrop-filter: blur(1vw);
     }
+    #save_cont {
+      display: none;
+      position: relative;
+      opacity: 0%;
+      height: 100%;
+      border: 0px solid black;
+      animation-name:;
+      animation-duration: 0.5s;
+      animation-iteration-count: 1;
+      animation-timing-function: linear
+    }
+    @keyframes fade2 {
+      to {opacity: 100%}
+    }
+    #nature_save {
+      width: 70%;
+      display: block;
+      position: relative;
+      margin: 0 0 0 15%;
+      top: 20%;
+      transform: translateY(-50%);
+      text-align: center;
+      font-family: montmed;
+      font-size: 1.5vw;
+    }
     #guide_cont {
       display: block;
       position: relative;
       height: 100%;
       border: 0px solid black;
+      animation-name: ;
+      animation-duration: 0.1s;
+      animation-iteration-count: 1;
+      animation-timing-function: linear
+    }
+    @keyframes fade {
+      to {opacity: 0%}
     }
     #click_guide {
       border: 0px solid black;
@@ -498,6 +530,11 @@
         
         <div class="card" id="card4">
           
+          <div id="save_cont">
+            <h4 id="nature_save">What to be conserved and how is to be conserved we already know that, so why not Just Do It!<br><br></h4>
+            <h4 class="phrase" id="nature_save" style="font-family: nexhev; font-size: 2vw">“Nature is not a place to visit, it is home”</h4>
+          </div>
+          
           <div id="guide_cont">
             <div id="meter_div_guide">
               <div id="meter_hori_1"></div>
@@ -541,13 +578,18 @@
   </body>
   <script>
     var playback_state = 0;
-    var snd = new Audio("glossy.mp3");
+    var phrase_no = 1;
+    const phrase = ["", `“Don't let Mother Nature become a, Once Upon a Time”`, `“Earth provides enough to satisfy every man's needs, but not every man's greed”`, '“Look deep into nature, and then you will understand everything better” —Albert Einstein', '“If conservation of natural resources goes wrong, nothing else will go right” — M. S. Swaminathan']
+    const snd = new Audio("glossy.mp3");
     const wave_mus_cont = document.querySelector('#wave_mus_cont')
+    const guide_cont = document.querySelector('#guide_cont')
+    const save_cont = document.querySelector('#save_cont')
     
     $('#card4').click(function () {
       if (playback_state == 0) {
         playback_state = 1;
         snd.play();
+        $('#guide_cont').css("animationName", "fade");
         $('#wave_mus_cont').css("animationName", "wave_mus_cont");
         $('#wave_mus_cont').css("top", "-28%");
         sessionStorage.setItem("played", "yes")
@@ -564,6 +606,13 @@
       }
     })
     
+    guide_cont.addEventListener("animationend", () => {
+      $('#guide_cont').css("display", "none")
+      $('#save_cont').css("display", "block")
+      $('#save_cont').css("animationName", "fade2")
+    })
+    save_cont.addEventListener("animationend", () => {$('#save_cont').css("opacity", "100%")})
+    
     const myInterval = setInterval(function () {
       const pos_sec = Math.floor(snd.currentTime);
       $('#mus_timing').text(pos_sec+"s");
@@ -578,6 +627,8 @@
     
     snd.addEventListener("ended", function () {
       snd.play();
+      $('.phrase').text(phrase[phrase_no]);
+      phrase_no = phrase_no + 1;
       $('#mus_timing').text("0s");
       if (sessionStorage.getItem("played") == "yes") {$('#guide_cont').css("display", "none")}
       $('#wave_mus_cont').css("animationName", "wave_mus_cont");
