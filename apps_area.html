@@ -5,13 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatable" content="IE-edge, chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3e4459">
   <script type="text/javascript" src="jquery-3.7.1.js"></script>
   <title>My Apps</title>
 </head>
 
 <style id="sty">
   body{
-    padding: 0vw;
+    background-color: #f2efeb;
+    padding: 0;
     margin: 0;
   }
   .top_bar_cont {
@@ -27,7 +29,7 @@
     display: block;
     top: 5%;
     left: 1%;
-    }
+  }
   #card1:hover{
     box-shadow: 0vw 0vh 2vw #fbdf63;
   }
@@ -245,13 +247,13 @@
     50% {
       margin: 0 0 0 -10vw;
       left: 87vw;
-      top: 72vw;
+      top: 71vw;
       width: 20vw;
       height: 10vw;
     }
     85%{
       margin: -10vw 0 0 0;
-      top: 72vw;
+      top: 71vw;
       left: 1vw;
       width: 10vw;
       height: 20vw;
@@ -405,7 +407,6 @@
     }
     #app_detail {
       font-size: 1.2vw;
-      margin: 0 0 0.1em 0;
     }
     #app_view_app_name {
       font-size: 4vw;
@@ -427,9 +428,9 @@
 </style>
 
 <body>
-
+  
   <div class="top_bar_cont">
-    <img id="logo" src="logo.png" alt="logo" onclick="window.location = '/gpu/ind.html'">
+    <img id="logo" src="logo.png" alt="logo" onclick="window.location = 'gpu/index.html'">
   </div>
   
   <h1 style="font-family: regu; margin-left: 1.3vw;">Apps made..</h1><h1 style="font-family: bold;">BY ME</h1>
@@ -514,14 +515,10 @@
   try{
   
     //card3p.style.height = card1p.clientHeight + "px";
-    console.log(imga.clientHeight);
-    console.log(imga2.clientHeight);
-    console.log(imga3.clientHeight);
-    console.log(card1.offsetWidth, card1.clientWidth);
-    console.log(card1.offsetHeight, card2.offsetHeight, card3.clientHeight);
-    card3.style.height = (card1.clientHeight + "px");
-    card2.style.height = (card1.clientHeight + "px");
-    card1.style.height = (card1.clientHeight + "px");
+    var height = card1.clientHeight;
+    card3.style.height = (height + "px");
+    card2.style.height = (height + "px");
+    card1.style.height = (height + "px");
     card2.style.marginTop = "0px";
     
     console.log(card1.offsetHeight, card2.offsetHeight, card3.clientHeight);
