@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cube Wireframe</title>
+  <style>
+    /* Basic resets */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      line-height: 1.5;
+      background-color: #f8f8f8;
+    }
+    main {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    /* Hero / Header Section */
+    .hero {
+      background-color: #eaeaea;
+      text-align: center;
+      padding: 4rem 2rem;
+      margin-bottom: 2rem;
+    }
+    .hero .hero-image {
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      background-color: #ccc;
+      margin: 0 auto 2rem;
+      display: block;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.125rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Make Profile Section */
+    .profile-section {
+      text-align: center;
+      margin: 4rem 0;
+    }
+    .profile-section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+    }
+    .profile-snippets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .profile-snippet {
+      background-color: #fff;
+      flex: 1 1 300px;
+      max-width: 400px;
+      padding: 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .profile-snippet h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .profile-snippet p {
+      font-size: 1rem;
+      color: #666;
+    }
+    .profile-more {
+      margin-top: 1rem;
+      display: inline-block;
+      font-size: 0.95rem;
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    /* Opinions / Voice Matters Section */
+    .voice-section {
+      margin: 4rem 0;
+      text-align: center;
+    }
+    .voice-section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .voice-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #666;
+    }
+    .voice-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .voice-card {
+      background-color: #fff;
+      flex: 1 1 220px;
+      max-width: 250px;
+      padding: 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .voice-card h4 {
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+    }
+    .voice-card p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* Priority Access Section */
+    .priority-section {
+      background-color: #fff;
+      margin: 4rem 0;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .priority-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .priority-section p {
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0.5rem auto 1.5rem;
+      color: #666;
+    }
+    .priority-section a.cta-button {
+      display: inline-block;
+      background-color: #0066cc;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+
+    /* Additional Benefits Section */
+    .benefits-section {
+      margin: 4rem 0;
+    }
+    .benefits-section h2 {
+      text-align: center;
+      font-size: 1.75rem;
+      margin-bottom: 3rem;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    .benefit-box {
+      background-color: #fff;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .benefit-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .benefit-box p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.875rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+<main>
+  <!-- HERO / TOP SECTION -->
+  <section class="hero">
+    <div class="hero-image">
+      <!-- Placeholder for Hero Image / Banner -->
+    </div>
+    <h1>Step into the Cube</h1>
+    <p>Core Headline or Imagery Introduction</p>
+  </section>
+
+  <!-- MAKE PROFILE SECTION -->
+  <section class="profile-section">
+    <h2>Make Your Profile a Better Place to View</h2>
+    <div class="profile-snippets">
+      <div class="profile-snippet">
+        <h3>First Sub Snippet</h3>
+        <p>
+          Short description or placeholder text that explains
+          the benefits or features for the user’s profile.
+        </p>
+        <a href="#" class="profile-more">Learn More</a>
+      </div>
+      <div class="profile-snippet">
+        <h3>Second Sub Snippet</h3>
+        <p>
+          Another short description or placeholder text for
+          additional benefits or features.
+        </p>
+        <a href="#" class="profile-more">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPINIONS / VOICE MATTERS SECTION -->
+  <section class="voice-section">
+    <h2>More of Your Opinions, Where Your Voice Matters</h2>
+    <h3>When you speak, we listen</h3>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <h4>Add Your Feedback</h4>
+        <p>Share your thoughts and help shape the future.</p>
+      </div>
+      <div class="voice-card">
+        <h4>Show Your Suggestions</h4>
+        <p>We welcome all ideas to improve our platform.</p>
+      </div>
+      <div class="voice-card">
+        <h4>We Are Listening Now</h4>
+        <p>Real-time updates and quick responses to your needs.</p>
+      </div>
+      <div class="voice-card">
+        <h4>We Want Your Voice</h4>
+        <p>Join the conversation and be part of the community.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIORITY ACCESS SECTION -->
+  <section class="priority-section">
+    <h2>Priority Access from Creators of the Cube</h2>
+    <p>Get an exclusive invitation to explore new features and insights.</p>
+    <a href="#" class="cta-button">Register Now</a>
+  </section>
+
+  <!-- ADDITIONAL BENEFITS SECTION -->
+  <section class="benefits-section">
+    <h2>Additional Benefits</h2>
+    <div class="benefits-grid">
+      <div class="benefit-box">
+        <h3>Free Cubes</h3>
+        <p>Access specialized features at no extra cost.</p>
+      </div>
+      <div class="benefit-box">
+        <h3>Recognition</h3>
+        <p>Stand out among peers and gain credibility.</p>
+      </div>
+      <div class="benefit-box">
+        <h3>Intuitive</h3>
+        <p>User-friendly design that simplifies tasks.</p>
+      </div>
+      <div class="benefit-box">
+        <h3>Inspiration</h3>
+        <p>Discover fresh ideas to expand your creativity.</p>
+      </div>
+      <div class="benefit-box">
+        <h3>Dark Mode</h3>
+        <p>Reduce eye strain and improve readability.</p>
+      </div>
+      <div class="benefit-box">
+        <h3>Personalization</h3>
+        <p>Customize your space to reflect your style.</p>
+      </div>
+      <div class="benefit-box">
+        <h3>Smart Search</h3>
+        <p>Find relevant information faster with advanced filters.</p>
+      </div>
+      <div class="benefit-box">
+        <h3>Analytics</h3>
+        <p>Track your progress and gain valuable insights.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Cube. All rights reserved.
+</footer>
+
+</body>
+  </html>
